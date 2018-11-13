@@ -1,0 +1,36 @@
+{
+  "pages":[
+	"pages/welcome/welcome",
+    "pages/index/index",
+    "pages/mine/mine",   
+    "pages/task/task"
+  ],
+  "window":{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#de3939",
+    "navigationBarTitleText": "燕麦网",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#eceff4"
+  },
+  "tabBar": {
+    "color": "#858585",
+    "selectedColor": "#de3939",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list":[
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/icons/mark.png",
+        "selectedIconPath": "images/icons/markHL.png",
+        "text": "任务列表"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "iconPath": "images/icons/mine.png",
+        "selectedIconPath": "images/icons/mineHL.png",
+        "text": "个人中心"
+      }
+    ]
+  },
+  "debug": true
+}
