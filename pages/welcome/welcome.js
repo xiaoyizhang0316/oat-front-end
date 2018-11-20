@@ -97,6 +97,16 @@ Page({
         var self = this
         app.globalData.clientInfo = clientInfo
         wx.setStorageSync('clientInfo', clientInfo)
+        /*app.globalData.nickName = clientInfo.nickName
+        app.globalData.avatarUrl = clientInfo.avatarUrl
+        wx.setStorage({
+          key: 'nickname',
+          data: app.globalData.nickName
+        })
+        wx.setStorage({
+          key: 'avatarUrl',
+          data: app.globalData.avatarUrl
+        })*/
         let url = COM.load('CON').UPDATA_CLIENT;
         COM.load('NetUtil').netUtil(url, "POST", {
             "clientId": app.globalData.clientId,

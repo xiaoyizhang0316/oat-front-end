@@ -1,11 +1,15 @@
 {
-  "pages":[
-	"pages/welcome/welcome",
+  "pages": [
+    "pages/welcome/welcome",
     "pages/index/index",
-    "pages/mine/mine",   
-    "pages/task/task"
+    "pages/mine/mine",
+    "pages/task/task",
+    "pages/myTask/myTask",
+    "pages/aboutUs/aboutUs",
+    "pages/FAQ/FAQ",
+    "pages/report/report"
   ],
-  "window":{
+  "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#de3939",
     "navigationBarTitleText": "燕麦网",
@@ -17,7 +21,7 @@
     "selectedColor": "#de3939",
     "backgroundColor": "#ffffff",
     "borderStyle": "black",
-    "list":[
+    "list": [
       {
         "pagePath": "pages/index/index",
         "iconPath": "images/icons/mark.png",
