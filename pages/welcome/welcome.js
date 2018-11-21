@@ -26,54 +26,57 @@ Page({
     },
 
     prepare: function(e) {
-        let self = this
-        //wait for wx login auth 
-        if (app.globalData.clientId == null) {
-            setTimeout(function() {
-                self.prepare(e)
-            }, 1000)
-            return
-        }
-        //wait for customer clicking two step auth
-        else if (self.data.count < 5 && self.data.approve == false) {
-            let clientInfo = wx.getStorageSync('clientInfo')
-            console.log(clientInfo)
-            if (!clientInfo) {
-                self.setData({
-                    showModal: true
-                })
-                setTimeout(function() {
-                    self.prepare(e)
-                    let c = self.data.count + 1
-                    self.setData({
-                        count: c
-                    })
-                }, 1000)
-                return
-            } else {
-                self.hideModal();
-                app.globalData.clientInfo = clientInfo
-                self.setTarget(e)
-            }
 
-        }
-        // if customer click approve, but data is not received
-        else if (self.data.count < 5 && self.data.approve == true && app.globalData.clientInfo == null) {
-            self.hideModal();
-            setTimeout(function() {
-                self.prepare(e)
-            }, 1000)
-            return
-        }
+      let self = this
+      //wait for wx login auth 
+      if (app.globalData.clientId == null) {
+        setTimeout(function() {
+          self.prepare(e)
+        }, 1000)
+        return
+      }
+      //wait for customer clicking two step auth
+      else if (self.data.count < 5 && self.data.approve == false) {
+			  let clientInfo = wx.getStorageSync('clientInfo')
+			  console.log(clientInfo)
+			  if(!clientInfo)
+			  {
+				  self.setData({
+					  showModal: true
+				  })
+				  setTimeout(function () {
+					  self.prepare(e)
+					  let c = self.data.count + 1
+					  self.setData({
+						  count: c
+					  })
+				  }, 1000)
+				  return
+			  }else{
+				  self.hideModal();
+				  app.globalData.clientInfo = clientInfo
+				  self.setTarget(e)
+			  }
+           
+      }
+      // if customer click approve, but data is not received
+      else if (self.data.count < 5 && self.data.approve == true && app.globalData.clientInfo == null) {
+        self.hideModal();
+        setTimeout(function() {
+          self.prepare(e)
+        }, 1000)
+         return
+      }
+
         //1. success get user info proceed to index 2. over waitting time, proceed to index as not login user
-        else if (app.globalData.clientInfo != null || self.data.count >= 5) {
-            self.hideModal()
-            self.setTarget(e)
-        } else {
-            console.log('something wrong, please check')
-            console.log(app.globalData)
-            console.log(self.data)
-        }
+      else if (app.globalData.clientInfo != null || self.data.count >= 5) {
+        self.hideModal()
+        self.setTarget(e)
+      } else {
+        console.log('something wrong, please check')
+        console.log(app.globalData)
+        console.log(self.data)
+      }
     },
     //获得访问的品牌 或者 任务
     setTarget: function(e) {
@@ -166,6 +169,8 @@ Page({
 
             let tasks = wx.getStorageSync("tasks");
             let clientId = wx.getStorageSync("clientId");
+          console.log(tasks);
+          console.log(clientId);
 
             if (tasks && clientId) {
 				clearInterval(interval);

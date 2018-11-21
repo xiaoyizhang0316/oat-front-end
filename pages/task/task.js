@@ -8,6 +8,7 @@ const urlList = [
 const app = getApp();
 
 Page({
+
     data: {
         url: '',
         status: '',
@@ -28,6 +29,8 @@ Page({
                     }
                 })
             }
+
+
         })
         download.downloadSaveFiles({
             urls: self.data.url,
@@ -100,6 +103,7 @@ Page({
 
 
 
+
     onLoad: function(e) {
         let self = this
         this.setData({
@@ -128,9 +132,9 @@ Page({
                     }
                 })
             } else {
-				self.setData({
-					currentTask : currentTask
-				})
+                self.setData({
+                    currentTask: currentTask
+                })
             }
         }
 

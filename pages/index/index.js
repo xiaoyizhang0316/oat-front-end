@@ -18,13 +18,14 @@ Page({
 	
 	//查看详情
 	showDetail(event) {
+    console.log(event)
 		wx.navigateTo({
-			url: '../task/task?id=' + event.currentTarget.id,
+			url: '../task/task?taskId=' + event.currentTarget.id,
 		});
 	},
 	onShow(){
 		var tasks = wx.getStorageSync('tasks');
-    console.log(tasks);
+    console.log(tasks[0].material.imgs[0]);
 		this.setData({
 			tasks : tasks
 		})
