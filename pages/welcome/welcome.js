@@ -36,27 +36,26 @@ Page({
         }
         //wait for customer clicking two step auth
         else if (self.data.count < 5 && self.data.approve == false) {
-			let clientInfo = wx.getStorageSync('clientInfo')
-			console.log(clientInfo)
-			if(!clientInfo)
-			{
-				self.setData({
-					showModal: true
-				})
-				setTimeout(function () {
-					self.prepare(e)
-					let c = self.data.count + 1
-					self.setData({
-						count: c
-					})
-				}, 1000)
-				return
-			}else{
-				self.hideModal();
-				app.globalData.clientInfo = clientInfo
-				self.setTarget(e)
-			}
-           
+            let clientInfo = wx.getStorageSync('clientInfo')
+            console.log(clientInfo)
+            if (!clientInfo) {
+                self.setData({
+                    showModal: true
+                })
+                setTimeout(function() {
+                    self.prepare(e)
+                    let c = self.data.count + 1
+                    self.setData({
+                        count: c
+                    })
+                }, 1000)
+                return
+            } else {
+                self.hideModal();
+                app.globalData.clientInfo = clientInfo
+                self.setTarget(e)
+            }
+
         }
         // if customer click approve, but data is not received
         else if (self.data.count < 5 && self.data.approve == true && app.globalData.clientInfo == null) {
@@ -81,12 +80,17 @@ Page({
         let self = this
         //TODO we do not have brand yet so we only consider task
         //let brandId = e.targetBrandId
+
+		console.log("___________________________________target")
+        console.log(e)
+		console.log("____---------------------------------------")
+
+
         if (Object.prototype.toString.call(e) !== '[object Undefined]' && Object.prototype.toString.call(e.targetTaskId) !== '[object Undefined]') {
             let taskId = e.targetTaskId
             //TODO 
-            wx.navigateTo({
-                url: '../task/task?taskId=' + taskId,
-            })
+			self.navigatorToIndex("task", taskId)
+           
         } else {
             self.navigatorToIndex()
         }
@@ -125,7 +129,7 @@ Page({
     /**
      * 隐藏模态对话框
      */
-    hideModal: function() {	
+    hideModal: function() {
         this.setData({
             showModal: false
         });
@@ -148,7 +152,7 @@ Page({
         self.saveClientData(e.detail.userInfo)
     },
     //如果点了确定
-    onBindTap(e) {		
+    onBindTap(e) {
         let self = this
         self.setData({
             approve: true
@@ -156,7 +160,7 @@ Page({
         self.hideModal();
     },
 
-    navigatorToIndex: function() {
+    navigatorToIndex: function(page = "index", pageId = 0) {
         var interval = setInterval(function() {
             console.info('checking the storage');
 
@@ -164,10 +168,20 @@ Page({
             let clientId = wx.getStorageSync("clientId");
 
             if (tasks && clientId) {
-                clearInterval(interval);
-                wx.switchTab({
-                    url: '../index/index',
-                })
+				clearInterval(interval);
+				if(page == "index")
+				{
+					wx.switchTab({
+						url: '../index/index',
+					})
+				}else if(page == "task" && pageId != 0)			
+				{
+					wx.navigateTo({
+						url: '../task/task?taskId=' + pageId,
+					})
+				}
+                
+               
             }
         }, 2000);
     },
