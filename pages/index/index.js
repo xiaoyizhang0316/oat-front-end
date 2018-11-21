@@ -4,7 +4,7 @@ var app = getApp();
 Page({
 
 	data: {		
-		tasks: null,
+		tasks: null
 	},
 
 	/**
@@ -25,10 +25,13 @@ Page({
 		});
 	},
 	onShow(){
-		var tasks = wx.getStorageSync('tasks')
+		var tasks = wx.getStorageSync('tasks');
+    console.log(tasks);
 		this.setData({
-			tasks : tasks
+			tasks : tasks,
+      token: app.globalData.token
 		})
+
 		
 		var timestamp = Date.parse(new Date());
 		timestamp = timestamp / 1000;

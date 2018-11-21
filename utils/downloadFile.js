@@ -51,14 +51,12 @@ function downloadSaveFile(obj) {
 					}
 				}
 			})
-
 		},
 		fail: function (e) {
 			console.info("下载一个文件失败");
 			if (fail) {
 				fail(e);
 			}
-
 		}
 	})
 }
@@ -81,7 +79,6 @@ function downloadSaveFiles(obj) {
 				console.dir(res);
 				//一个文件下载保存成功
 				let savedFilePath = res.savedFilePath;
-
 				savedFilePaths.set(res.id, res);
 				console.info("savedFilePath:%s", savedFilePath);
 				if (savedFilePaths.size == urlsLength) { //如果所有的url 才算成功
@@ -96,13 +93,9 @@ function downloadSaveFiles(obj) {
 				if (fail) {
 					fail(e);
 				}
-
 			}
 		})
-
 	}
-
-
 }
 module.exports = {
 	downloadSaveFiles: downloadSaveFiles
