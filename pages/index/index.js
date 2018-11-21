@@ -1,6 +1,9 @@
 // index.js
 var app = getApp();
 
+
+
+
 Page({
 
 	data: {		
@@ -28,8 +31,7 @@ Page({
 		var tasks = wx.getStorageSync('tasks');
     console.log(tasks);
 		this.setData({
-			tasks : tasks,
-      token: app.globalData.token
+			tasks : tasks
 		})
 
 		

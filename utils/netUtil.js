@@ -5,16 +5,13 @@ var CON = require('constant.js');
  * 返回 格式res:{code:1/-1, errMsg, data} 1成功 -1失败
  * 包含统一的加载中 加载失败提示
  * **/
-function netUtil(url, method, body,callBack, hide = true, showModal = true) {
+function netUtil(url, method, body,callBack, hide = true,contentType='application/json', showModal = true) {
     if (showModal) {
         wx.showLoading({
             title: '加载中，请稍等',
             mask: true,
-
         })
-
     }
-
     var callBackData = {};
     var token = wx.getStorageSync('token');
     console.log(token);
@@ -23,7 +20,7 @@ function netUtil(url, method, body,callBack, hide = true, showModal = true) {
     wx.request({
         url: url,
         header: {
-          'content-type': 'application/json',
+          'content-type': contentType,
           'Authorization':"Bearer " + token
         },
         method: method,

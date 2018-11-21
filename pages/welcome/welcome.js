@@ -107,7 +107,7 @@ Page({
           key: 'avatarUrl',
           data: app.globalData.avatarUrl
         })*/
-        let url = COM.load('CON').UPDATA_CLIENT;
+        let url = COM.load('CON').UPDATE_CLIENT;
         COM.load('NetUtil').netUtil(url, "POST", {
             "clientId": app.globalData.clientId,
             "name": clientInfo.nickName,

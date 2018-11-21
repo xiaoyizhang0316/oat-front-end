@@ -5,10 +5,10 @@
   </view>
 
   <view class='menu'>
-      <view class='menuOption'>我的任务 <text class='menuLable'>></text></view>
-      <view class='menuOption'>常见问题 <text class='menuLable'>></text></view>
-      <view class='menuOption'>意见反馈 <text class='menuLable'>></text></view>
-      <view class='menuOption'>关于我们 <text class='menuLable'>></text></view>
+      <view class='menuOption' bindtap='goToMyTask'>我的任务 <text class='menuLable'>></text></view>
+      <view class='menuOption' bindtap='goToFAQ'>常见问题 <text class='menuLable'>></text></view>
+      <view class='menuOption' bindtap='goToReport'>意见反馈 <text class='menuLable'>></text></view>
+      <view class='menuOption' bindtap='goToAboutUs'>关于我们 <text class='menuLable'>></text></view>
   </view>
 
 

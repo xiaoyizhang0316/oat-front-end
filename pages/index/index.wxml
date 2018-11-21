@@ -3,16 +3,16 @@
 <scroll-view scroll-y="true"> 
   <view wx:for="{{tasks}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{idx}}">
     <view class='topTitle'>
-      <text>{{item.meta.title}}</text>
+      <text>{{item.title}}</text>
       <image src='../../images/icons/collect.png' class='logoImg'></image>
     </view>
-    <image mode="aspectFit" src="{{item.meta.cover}}" class="cover"></image>
+    <image mode="aspectFit" src="{{item.material.imgs[0]}}" class="cover"></image>
     <view class="desc">
       <view class="left">
-        <text>发布时间：{{item.meta.meta}}</text>
+        <text>发布时间：{{item.created_at}}</text>
       </view>
       <view class="right">
-        <text style="margin-top:10rpx;color:darkgray">截止日期：YYYY-MM-DD</text>
+        <text style="margin-top:10rpx;color:darkgray">截止日期：{{item.finish_at}}</text>
       </view>
     </view>
   </view>

@@ -1,11 +1,9 @@
 // entry.js
 import download from "../../utils/downloadFile.js"
+
+var COM = require('../../utils/common.js')
 const urlList = [
-  'http://seopic.699pic.com/photo/50035/0520.jpg_wh1200.jpg',
-'https://pub-static.haozhaopian.net/static/web/site/features/cn/crop/images/crop_20a7dc7fbd29d679b456fa0f77bd9525d.jpg',
-  'http://pic.pimg.tw/nsnet/1312630758-aacfe0540683be05222f80f1a6c4f26e.jpg',
-  'http://blog.barbaramccarthyphotos.com/wp-content/uploads/2018/07/Summer-drinking.jpg',
-  'http://pic.sc.chinaz.com/files/pic/pic9/201610/apic23847.jpg'
+  'http://seopic.699pic.com/photo/50035/0520.jpg_wh1200.jpg'
 ];
 const app = getApp();
 
@@ -60,6 +58,29 @@ Page({
       success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         const tempFilePaths = res.tempFilePaths;
+        //console.log(tempFilePaths);
+        let url = COM.load('CON').GET_REWARD;
+        /*COM.load('NetUtil').netUtil(url, "POST", {
+          url: tempFilePaths[0]
+        }, (callback) => {
+          if (callback == true) {
+            console.log('update client info successfully')
+          }
+        })
+        let token = wx.getStorageSync('token');*/
+        wx.uploadFile({
+          url: url,
+          filePath: tempFilePaths[0],
+          name: 'test',
+          header: {
+            'content-type':'multipart/form-data',
+            'Authorization': 'Bearer ' + token
+          },
+          success(res) {
+            const data = res.data
+            //do something
+          }
+        })
         wx.showToast({
           title: "上传成功",
           duration: 1500,

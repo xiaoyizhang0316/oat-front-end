@@ -31,10 +31,10 @@
   <view class='shareImg' >
     <image src='{{item}}' wx:for = '{{url}}' class='detailImg'></image>
   </view>
-  <view wx:if = '{{status==0}}' class='shareButton' ontap = 'shareImg'>
+  <view wx:if = '{{status==0}}' class='shareButton' bindtap = 'shareImg'>
     一键转发
   </view>
-  <view wx:if = '{{status==1}}' class='shareButton' ontap = 'uploadScreenshot'>
+  <view wx:if = '{{status==1}}' class='shareButton' bindtap = 'uploadScreenshot'>
     上传截图
   </view>
   <view wx:if = '{{status==2}}' class='shareButton'>
