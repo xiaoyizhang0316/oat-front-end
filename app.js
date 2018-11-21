@@ -20,7 +20,7 @@ App({
 		//登陆则刷新任务
 
 		//检查缓存
-		wx.getStorage({
+		/*wx.getStorage({
 			key: "clientId",
 			success(res) {
 				console.log(res)
@@ -40,8 +40,26 @@ App({
 					}
 				})
 			}
-		})
-    self.getTasks()
+		})*/
+    if (wx.getStorageSync("clientId")){
+      self.globalData.clientId = wx.getStorageSync("clientId")
+      self.globalData.token = wx.getStorageSync('token')
+      self.globalData.avatarUrl = wx.getStorageSync('avatarUrl')
+      self.globalData.nickName = wx.getStorageSync('nickName')
+      self.getTasks()
+    }
+    else{
+      wx.login({
+        success: function (res) {
+          console.log(res);
+          self.getClientId(res.code)
+          self.getTasks()
+        },
+        fail: function (res) {
+          console.log(res)
+        }
+      })
+    }
 
 	},
 
@@ -68,7 +86,7 @@ App({
 			})
 
 		})
-    COM.load('NetUtil').netUtil(url, "GET", "")
+    //COM.load('NetUtil').netUtil(url, "GET", "")
 	},
 
 	// 获取任务列表
