@@ -1,7 +1,10 @@
 //url相关
 //base urls 
 //const BASE_URL = "https://a.zhenxianghaitao.com/oat"
+
 const BASE_URL = "http://8227066d.ngrok.io"
+
+
 const IMG_BASE = "https://a.zhenxianghaitao.com/storage/newthumbs/"
 const IMG_BASE_THUMB = "https://a.zhenxianghaitao.com/storage/thumbs/"
 const IMG_BANNER = "https://a.zhenxianghaitao.com/storage/"
