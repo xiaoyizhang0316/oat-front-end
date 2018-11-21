@@ -1,7 +1,7 @@
 <!--list.wxml-->
 
 <scroll-view scroll-y="true"> 
-  <view wx:for="{{tasks}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{idx}}">
+  <view wx:for="{{tasks}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{item.id}}">
     <view class='topTitle'>
       <text>{{item.title}}</text>
       <image src='../../images/icons/collect.png' class='logoImg'></image>

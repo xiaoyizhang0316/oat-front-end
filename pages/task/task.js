@@ -11,7 +11,8 @@ Page({
   data: {
     url: '',
     status: '',
-    description:null
+    description:null,
+    task:''
   },
   
 
@@ -99,10 +100,15 @@ Page({
 
 
 
-  onLoad: function() {
+  onLoad: function(option) {
     this.setData({
       url : urlList,
       description: "这是一段任务描述"
+    })
+    console.log(option.id);
+    let url = COM.load('CON').GET_TASKS + '/' + option.id;
+    COM.load('NetUtil').netUtil(url, "GET", {}, (data) => {
+      console.log(data);
     })
   },
 
