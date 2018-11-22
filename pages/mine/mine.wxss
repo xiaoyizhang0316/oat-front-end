@@ -15,10 +15,10 @@
 
 .menu {
   margin: 40rpx 9% 40rpx 8%;
-  background-color:#f4f7fc;
+  background-color:#f7f8f9;
   padding:10rpx 0;
-  border-top:1px solid black;
-  border-bottom:1px solid black;
+  border-top:1px solid #dae3f2;
+  border-bottom:1px solid #dae3f2;
 }
 
 .menuOption {
@@ -28,7 +28,7 @@
 }
 
 .menuOption:nth-child(-n+3) {
-  border-bottom:1px solid black;
+  border-bottom:1px solid #dae3f2;
 }
 
 .menuOption:active {

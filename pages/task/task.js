@@ -105,8 +105,8 @@ Page({
       url : urlList,
       description: "这是一段任务描述"
     })
-    console.log(option.id);
-    let url = COM.load('CON').GET_TASKS + '/' + option.id;
+    //console.log(option);
+    let url = COM.load('CON').GET_TASKS + '/' + option.taskId;
     COM.load('NetUtil').netUtil(url, "GET", {}, (data) => {
       console.log(data);
     })

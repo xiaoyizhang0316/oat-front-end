@@ -1,9 +1,9 @@
 /* pages/myTask/myTask.wxss */
-
 .item-container {
-  margin: 20rpx 20rpx;
+  margin: 50rpx 30rpx;
   position: relative;
-  border: 1px solid gray;
+  border: 1px solid #dae3f2;
+  background-color: #f7f8f9;
   border-radius: 2%;
 }
 
@@ -11,25 +11,32 @@
   filter:opacity(1.6);
 }
 
-.cover {
-  height: 400rpx;
+.taskDescription {
+  padding:0rpx 5% 20rpx 5%;
   width:90%;
-  padding:5%;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+
+.cover {
+  height: 300rpx;
+  width:90%;
+  padding:20rpx 5%;
 }
 
 .topTitle {
   font-size:32rpx;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #dae3f2;
   margin:0;
   padding:2.5% 5% 2.5% 5%;
   display: flex;
 }
 
 .logoImg {
-  height:50rpx;
-  width:50rpx;
+  height:40rpx;
+  width:40rpx;
   position:absolute;
-  right:10rpx;
+  right:20rpx;
 }
 .desc {
   margin: 10rpx 0;
@@ -37,7 +44,6 @@
   justify-content: space-between;
   align-items: center;
   padding-bottom: 20rpx;
-  border-bottom: 1px solid #E5E7ED;
 }
 
 .left {
