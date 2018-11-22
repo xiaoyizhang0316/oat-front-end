@@ -105,6 +105,7 @@ Page({
 
 
     onLoad: function(e) {
+		console.log("task")
         let self = this
         this.setData({
             url: urlList,
@@ -114,8 +115,9 @@ Page({
             let taskId = e.taskId
             let tasks = wx.getStorageSync('tasks')
             let currentTask = ""
+			
             for (let task of tasks) {
-                if (task.id == task) {
+                if (task.id == taskId) {
                     currentTask = task
                     break
                 }
@@ -127,7 +129,7 @@ Page({
                     showCancel: false,
                     success: function(e) {
                         wx.switchTab({
-                            url: 'page/index/index',
+                            url: '/pages/index/index',
                         })
                     }
                 })

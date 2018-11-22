@@ -15,7 +15,7 @@ App({
 		token: null
 	},
 	onLaunch: function () {
-
+		console.log("app.js")
 		var self = this
 		//登陆则刷新任务
 

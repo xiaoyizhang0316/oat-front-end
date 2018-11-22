@@ -20,6 +20,8 @@ Page({
      * 生命周期函数--监听页面加载
      */
     onLoad: function(options) {
+		console.log("welcome")
+		console.log(options)
         let self = this
         //wait for many ready to use, then proceed to related page
         self.prepare(options);
@@ -27,56 +29,55 @@ Page({
 
     prepare: function(e) {
 
-      let self = this
-      //wait for wx login auth 
-      if (app.globalData.clientId == null) {
-        setTimeout(function() {
-          self.prepare(e)
-        }, 1000)
-        return
-      }
-      //wait for customer clicking two step auth
-      else if (self.data.count < 5 && self.data.approve == false) {
-			  let clientInfo = wx.getStorageSync('clientInfo')
-			  console.log(clientInfo)
-			  if(!clientInfo)
-			  {
-				  self.setData({
-					  showModal: true
-				  })
-				  setTimeout(function () {
-					  self.prepare(e)
-					  let c = self.data.count + 1
-					  self.setData({
-						  count: c
-					  })
-				  }, 1000)
-				  return
-			  }else{
-				  self.hideModal();
-				  app.globalData.clientInfo = clientInfo
-				  self.setTarget(e)
-			  }
-           
-      }
-      // if customer click approve, but data is not received
-      else if (self.data.count < 5 && self.data.approve == true && app.globalData.clientInfo == null) {
-        self.hideModal();
-        setTimeout(function() {
-          self.prepare(e)
-        }, 1000)
-         return
-      }
+        let self = this
+        //wait for wx login auth 
+        if (app.globalData.clientId == null) {
+            setTimeout(function() {
+                self.prepare(e)
+            }, 1000)
+            return
+        }
+        //wait for customer clicking two step auth
+        else if (self.data.count < 5 && self.data.approve == false) {
+            let clientInfo = wx.getStorageSync('clientInfo')
+            console.log(clientInfo)
+            if (!clientInfo) {
+                self.setData({
+                    showModal: true
+                })
+                setTimeout(function() {
+                    self.prepare(e)
+                    let c = self.data.count + 1
+                    self.setData({
+                        count: c
+                    })
+                }, 1000)
+                return
+            } else {
+                self.hideModal();
+                app.globalData.clientInfo = clientInfo
+                self.setTarget(e)
+            }
+
+        }
+        // if customer click approve, but data is not received
+        else if (self.data.count < 5 && self.data.approve == true && app.globalData.clientInfo == null) {
+            self.hideModal();
+            setTimeout(function() {
+                self.prepare(e)
+            }, 1000)
+            return
+        }
 
         //1. success get user info proceed to index 2. over waitting time, proceed to index as not login user
-      else if (app.globalData.clientInfo != null || self.data.count >= 5) {
-        self.hideModal()
-        self.setTarget(e)
-      } else {
-        console.log('something wrong, please check')
-        console.log(app.globalData)
-        console.log(self.data)
-      }
+        else if (app.globalData.clientInfo != null || self.data.count >= 5) {
+            self.hideModal()
+            self.setTarget(e)
+        } else {
+            console.log('something wrong, please check')
+            console.log(app.globalData)
+            console.log(self.data)
+        }
     },
     //获得访问的品牌 或者 任务
     setTarget: function(e) {
@@ -84,16 +85,20 @@ Page({
         //TODO we do not have brand yet so we only consider task
         //let brandId = e.targetBrandId
 
-		console.log("___________________________________target")
+        console.log("___________________________________target")
         console.log(e)
-		console.log("____---------------------------------------")
+        console.log("____---------------------------------------")
 
 
-        if (Object.prototype.toString.call(e) !== '[object Undefined]' && Object.prototype.toString.call(e.targetTaskId) !== '[object Undefined]') {
-            let taskId = e.targetTaskId
+        if (Object.prototype.toString.call(e) !== '[object Undefined]' && Object.prototype.toString.call(e.q) !== '[object Undefined]') {
+
+
+			let url = decodeURIComponent(e.q);
+			console.log("scan_url:" + url)		 
+			let taskId = url.match(/\d+/)
             //TODO 
-			self.navigatorToIndex("task", taskId)
-           
+            self.navigatorToIndex("task", taskId)
+
         } else {
             self.navigatorToIndex()
         }
@@ -169,24 +174,22 @@ Page({
 
             let tasks = wx.getStorageSync("tasks");
             let clientId = wx.getStorageSync("clientId");
-          console.log(tasks);
-          console.log(clientId);
+            console.log(tasks);
+            console.log(clientId);
 
             if (tasks && clientId) {
-				clearInterval(interval);
-				if(page == "index")
-				{
-					wx.switchTab({
-						url: '../index/index',
-					})
-				}else if(page == "task" && pageId != 0)			
-				{
-					wx.navigateTo({
-						url: '../task/task?taskId=' + pageId,
-					})
-				}
-                
-               
+                clearInterval(interval);
+                if (page == "index") {
+                    wx.switchTab({
+                        url: '../index/index',
+                    })
+                } else if (page == "task" && pageId != 0) {
+                    wx.navigateTo({
+                        url: '../task/task?taskId=' + pageId,
+                    })
+                }
+
+
             }
         }, 2000);
     },

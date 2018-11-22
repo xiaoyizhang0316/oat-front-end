@@ -10,7 +10,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad() {
-		
+		console.log("index.js")
 		var timestamp = Date.parse(new Date());
 		timestamp = timestamp / 1000;
 		console.log('index load at: ' + timestamp);

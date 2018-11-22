@@ -1,5 +1,5 @@
 <view class='body'>
-
+<!-- 
 <view class='topLogo'>
   <text class='logo'>Brand</text>
   <text class='Date'>YYYY-MM-DD</text>
@@ -44,6 +44,52 @@
 
 
 
+</view> -->
+
+
+
+
+<view class='topLogo'>
+  <text class='logo'>BrandLogo</text>
+  <text class='Date'>YYYY-MM-DD</text>
 </view>
+
+<view class='title'>
+  {{currentTask.title}}
+</view>
+<view class='description'>
+ {{currentTask.description}}
+</view>
+<view class='endDate'>
+  活动截止日期：{{currentTask.finish_at}}
+</view>
+
+<view class='share-container'>
+  <view class='topTitle'>
+    <text style='margin:20rpx 20rpx 20rpx 20rpx'>{{currentTask.material.title}}</text>
+    <image src='../../images/icons/collect.png' class='logoImg'></image>
+  </view>
+
+  <view class='share-detail'>
+   {{currentTask.material.description}}
+  </view>
+  <view class='shareImg' >
+    <image src='{{item}}' wx:for = '{{currentTask.material.imgs}}' class='detailImg'></image>
+  </view>
+  <view wx:if = '{{status==0}}' class='shareButton' bindtap = 'shareImg'>
+    一键转发
+  </view>
+  <view wx:if = '{{status==1}}' class='shareButton' bindtap = 'uploadScreenshot'>
+    上传截图
+  </view>
+  <view wx:if = '{{status==2}}' class='shareButton'>
+    领取奖励
+  </view>
+
+
+
+
+</view>
+
 
 </view>

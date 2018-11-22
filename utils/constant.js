@@ -2,7 +2,7 @@
 //base urls 
 //const BASE_URL = "https://a.zhenxianghaitao.com/oat"
 
-const BASE_URL = "http://8227066d.ngrok.io"
+const BASE_URL = "https://7c12c393.ngrok.io"
 
 
 const IMG_BASE = "https://a.zhenxianghaitao.com/storage/newthumbs/"
@@ -11,19 +11,19 @@ const IMG_BANNER = "https://a.zhenxianghaitao.com/storage/"
 
 // functional urls
 // system setting
-const GET_CLIENTID = BASE_URL+"/api/client/getClientId/"
-const GET_REWARD = BASE_URL+"/api/reward"
+const GET_CLIENTID = BASE_URL + "/api/client/getClientId/"
+const GET_REWARD = BASE_URL + "/api/reward"
 const TEST = BASE_URL + "/api/client/1"
-const GET_TASKS = BASE_URL+"/api/task"
-const UPDATE_CLIENT = BASE_URL+"/api/client/update-profile"
+const GET_TASKS = BASE_URL + "/api/task"
+const UPDATE_CLIENT = BASE_URL + "/api/client/update-profile"
 
 module.exports = {
-    BASE_URL,  
+    BASE_URL,
     IMG_BASE,
-	IMG_BANNER,
-	GET_CLIENTID,
-	GET_TASKS: GET_TASKS,
-  TEST,
-  GET_REWARD,
-  UPDATE_CLIENT
+    IMG_BANNER,
+    GET_CLIENTID,
+    GET_TASKS: GET_TASKS,
+    TEST,
+    GET_REWARD,
+    UPDATE_CLIENT
 }
