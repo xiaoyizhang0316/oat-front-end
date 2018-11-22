@@ -26,23 +26,24 @@ body,html{
 .description {
   margin:20rpx 20rpx 20rpx 50rpx;
   padding-right:20rpx;
-  font-size: 24rpx;
+  font-size: 22rpx;
 }
 
 .endDate {
-  font-size: 30rpx;
+  font-size: 28rpx;
   font-weight: 600;
   margin: 0 0 20rpx 50rpx;
 }
 
 .share-container {
-  background-color:#eff3f9;
+  background-color:#f7f8f9;
   margin: 20rpx 20rpx 20rpx 20rpx;
   border-radius: 2.5%;
+  border: 1px solid #dae3f2;
 }
 
 .topTitle {
-  border-bottom: 1px solid black;
+  border-bottom: 1px solid #dae3f2;
   display: flex;
   height: 70rpx;
 }

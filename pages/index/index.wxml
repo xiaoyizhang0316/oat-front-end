@@ -1,12 +1,21 @@
 <!--list.wxml-->
 
-<scroll-view scroll-y="true"> 
+<scroll-view scroll-y="true" class='body'> 
+  <view class='banner'>
+    <image src='../../images/icons/search.png' class='iconImg'></image>
+    <text class='bannerText'>Brand</text>
+    <image src='../../images/icons/calendar-fill.png' class='iconImg'></image>
+    <text class='bannerText'>Mission</text>
+    <image src='../../images/icons/warning-circle.png' class='iconImg'></image>
+    <text class='bannerText'>Target</text>
+  </view>
   <view wx:for="{{tasks}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{item.id}}">
     <view class='topTitle'>
       <text>{{item.title}}</text>
       <image src='../../images/icons/collect.png' class='logoImg'></image>
     </view>
-    <image mode="aspectFit" src="{{item.material.imgs[0]}}" class="cover"></image>
+    <image src="{{item.material.imgs[0]}}" class="cover"></image>
+    <view class='taskDescription'>墨尔本音乐节，万人集会怎能错过。<text>\n</text> 转发活动内容至朋友圈集齐40赞，即送红包￥88.<text>\n</text> 本次活动由3CH杨老师倾情赞助</view>
     <view class="desc">
       <view class="left">
         <text>发布时间：{{item.created_at}}</text>
