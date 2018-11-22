@@ -26,6 +26,7 @@ Page({
     },
 
     prepare: function(e) {
+
       let self = this
       //wait for wx login auth 
       if (app.globalData.clientId == null) {
@@ -66,6 +67,7 @@ Page({
         }, 1000)
          return
       }
+
         //1. success get user info proceed to index 2. over waitting time, proceed to index as not login user
       else if (app.globalData.clientInfo != null || self.data.count >= 5) {
         self.hideModal()
@@ -81,12 +83,17 @@ Page({
         let self = this
         //TODO we do not have brand yet so we only consider task
         //let brandId = e.targetBrandId
+
+		console.log("___________________________________target")
+        console.log(e)
+		console.log("____---------------------------------------")
+
+
         if (Object.prototype.toString.call(e) !== '[object Undefined]' && Object.prototype.toString.call(e.targetTaskId) !== '[object Undefined]') {
             let taskId = e.targetTaskId
             //TODO 
-            wx.navigateTo({
-                url: '../task/task?taskId=' + taskId,
-            })
+			self.navigatorToIndex("task", taskId)
+           
         } else {
             self.navigatorToIndex()
         }
@@ -125,7 +132,7 @@ Page({
     /**
      * 隐藏模态对话框
      */
-    hideModal: function() {	
+    hideModal: function() {
         this.setData({
             showModal: false
         });
@@ -148,7 +155,7 @@ Page({
         self.saveClientData(e.detail.userInfo)
     },
     //如果点了确定
-    onBindTap(e) {		
+    onBindTap(e) {
         let self = this
         self.setData({
             approve: true
@@ -156,7 +163,7 @@ Page({
         self.hideModal();
     },
 
-    navigatorToIndex: function() {
+    navigatorToIndex: function(page = "index", pageId = 0) {
         var interval = setInterval(function() {
             console.info('checking the storage');
 
@@ -166,10 +173,20 @@ Page({
           console.log(clientId);
 
             if (tasks && clientId) {
-                clearInterval(interval);
-                wx.switchTab({
-                    url: '../index/index',
-                })
+				clearInterval(interval);
+				if(page == "index")
+				{
+					wx.switchTab({
+						url: '../index/index',
+					})
+				}else if(page == "task" && pageId != 0)			
+				{
+					wx.navigateTo({
+						url: '../task/task?taskId=' + pageId,
+					})
+				}
+                
+               
             }
         }, 2000);
     },

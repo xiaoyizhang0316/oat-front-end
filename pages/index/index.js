@@ -1,9 +1,5 @@
 // index.js
 var app = getApp();
-
-
-
-
 Page({
 
 	data: {		
@@ -18,10 +14,9 @@ Page({
 		var timestamp = Date.parse(new Date());
 		timestamp = timestamp / 1000;
 		console.log('index load at: ' + timestamp);
-		
 	},
 	
-	// 查看详情
+	//查看详情
 	showDetail(event) {
     console.log(event)
 		wx.navigateTo({
