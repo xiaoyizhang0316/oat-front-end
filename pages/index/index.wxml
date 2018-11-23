@@ -12,10 +12,10 @@
   <view wx:for="{{tasks}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{item.id}}">
     <view class='topTitle'>
       <text>{{item.title}}</text>
-      <image src='../../images/icons/collect.png' class='logoImg'></image>
+      <image src="{{item.material.brand.logo}}" class='logoImg' mode="aspectFit"></image>
     </view>
-    <image src="{{item.material.imgs[0]}}" class="cover"></image>
-    <view class='taskDescription'>墨尔本音乐节，万人集会怎能错过。<text>\n</text> 转发活动内容至朋友圈集齐40赞，即送红包￥88.<text>\n</text> 本次活动由3CH杨老师倾情赞助</view>
+    <image src="{{item.material.imgs[0]}}" class="cover" mode="aspectFit"></image>
+    <view class='taskDescription'>{{item.description}}</view>
     <view class="desc">
       <view class="left">
         <text>发布时间：{{item.created_at}}</text>

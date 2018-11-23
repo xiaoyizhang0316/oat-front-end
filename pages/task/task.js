@@ -103,20 +103,19 @@ Page({
 
 
 
-<<<<<<< HEAD
-  onLoad: function(option) {
-    this.setData({
-      url : urlList,
-      description: "这是一段任务描述"
-    })
-    //console.log(option);
-    let url = COM.load('CON').GET_TASKS + '/' + option.taskId;
-    COM.load('NetUtil').netUtil(url, "GET", {}, (data) => {
-      console.log(data);
-    })
-  },
-=======
->>>>>>> aabfb52eaf38fa66204fd2d8f84b14832b2d0658
+
+//   onLoad: function(option) {
+//     this.setData({
+//       url : urlList,
+//       description: "这是一段任务描述"
+//     })
+//     //console.log(option);
+//     let url = COM.load('CON').GET_TASKS + '/' + option.taskId;
+//     COM.load('NetUtil').netUtil(url, "GET", {}, (data) => {
+//       console.log(data);
+//     })
+//   },
+
 
     onLoad: function(e) {
 		console.log("task")

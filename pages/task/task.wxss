@@ -9,6 +9,7 @@ body,html{
   margin-top: 25rpx;
 }
 
+.
 .logo{
   margin-left:50rpx;  
 }
@@ -53,6 +54,14 @@ body,html{
   width:50rpx;
   position:absolute;
   right:40rpx;
+  margin-top: 15rpx;
+}
+
+logoImg1{
+  height:50rpx;
+  width:50rpx;
+  position:absolute;
+  left:40rpx;
   margin-top: 15rpx;
 }
 
