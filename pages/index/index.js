@@ -25,7 +25,7 @@ Page({
 	},
 	onShow(){
 		var tasks = wx.getStorageSync('tasks');
-    console.log(tasks[0].material.imgs[0]);
+    //console.log(tasks[0].material.imgs[0]);
 		this.setData({
 			tasks : tasks
 		})

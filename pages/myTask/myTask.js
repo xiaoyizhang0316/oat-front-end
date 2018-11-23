@@ -17,6 +17,7 @@ Page({
     this.setData({
       tasks: tasks
     })
+    console.log(this.data.tasks)
   },
 
   /**
@@ -31,6 +32,13 @@ Page({
    */
   onShow: function () {
 
+  },
+
+  showDetail(event) {
+    console.log(event)
+    wx.navigateTo({
+      url: '../task/task?taskId=' + event.currentTarget.id,
+    });
   },
 
   /**
