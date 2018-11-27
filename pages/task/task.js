@@ -13,11 +13,10 @@ Page({
         url: '',
         status: '',
         description: null,
-        currentTask: ''
+        currentTask: '',
+		reward:'',
     },
-
-
-
+	
     shareImg: function() {
         var self = this;
         wx.setClipboardData({
@@ -29,16 +28,27 @@ Page({
                     }
                 })
             }
-
-
         })
         download.downloadSaveFiles({
             urls: self.data.url,
             success: function(res) {
                 console.dir(res);
-                self.setData({
-                    status: 1
-                })
+				console.log("weqewqeweqwewewwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww")
+				//create a reward record in server
+				//create reward record 
+				let url = COM.load('CON').CREATE_REWARD
+				COM.load('NetUtil').netUtil(url, "POST", {
+					"oatTaskId": self.data.currentTask.id
+				}, (reward) => {
+					if (reward) {
+						self.setData({
+							reward: reward,
+							status: reward.status
+
+						})
+					}
+				})
+
                 wx.showToast({
                     title: "下载任务成功",
                     duration: 1500,
@@ -50,6 +60,7 @@ Page({
                 console.info("下载失败");
             }
         });
+		
 
     },
 
@@ -62,20 +73,25 @@ Page({
             success(res) {
                 // tempFilePath可以作为img标签的src属性显示图片
                 const tempFilePaths = res.tempFilePaths;
-                //console.log(tempFilePaths);
-                let url = COM.load('CON').GET_REWARD;
+				console.log("---------------------------------------------")
+                console.log(tempFilePaths);
+				console.log("---------------------------------------------")
+				let url = COM.load('CON').UPDATE_REWARD;
                 /*COM.load('NetUtil').netUtil(url, "POST", {
                   url: tempFilePaths[0]
                 }, (callback) => {
                   if (callback == true) {
                     console.log('update client info successfully')
                   }
-                })
-                let token = wx.getStorageSync('token');*/
+                })*/
+                let token = wx.getStorageSync('token');
                 wx.uploadFile({
                     url: url,
                     filePath: tempFilePaths[0],
                     name: 'test',
+					formData: {
+						'oatRewardId': self.data.reward.id
+					},
                     header: {
                         'content-type': 'multipart/form-data',
                         'Authorization': 'Bearer ' + token
@@ -83,42 +99,24 @@ Page({
                     success(res) {
                         const data = res.data
                         //do something
+						wx.showToast({
+							title: "上传成功",
+							duration: 1500,
+							mask: true
+						});
+						self.setData({
+							reward:data,
+							status: reward.status
+						})
                     }
                 })
-                wx.showToast({
-                    title: "上传成功",
-                    duration: 1500,
-                    mask: true
-                });
-                self.setData({
-                    status: 2
-                })
+               
             }
         })
     },
 
-
-
-
-
-
-
-
-//   onLoad: function(option) {
-//     this.setData({
-//       url : urlList,
-//       description: "这是一段任务描述"
-//     })
-//     //console.log(option);
-//     let url = COM.load('CON').GET_TASKS + '/' + option.taskId;
-//     COM.load('NetUtil').netUtil(url, "GET", {}, (data) => {
-//       console.log(data);
-//     })
-//   },
-
-
     onLoad: function(e) {
-		console.log("task")
+		console.log("task_detail_onload")
         let self = this
         this.setData({
             url: urlList,
@@ -150,11 +148,28 @@ Page({
                 self.setData({
                     currentTask: currentTask
                 })
+				//self.checkReward(currentTask)
+				//check if current user is working on such project
+				let url = COM.load('CON').GET_REWARD_BY_TASKID_AND_CLIENT + currentTask.id
+				COM.load('NetUtil').netUtil(url, "GET", "", (data) => {
+					if(data)
+					{
+						self.setData({
+							reward:data,
+							status: reward.status
+						})
+					}
+				})
+
             }
         }
 
 
     },
+	onShow: function(e)
+	{
+		console.log("on show")
+	},
 
     onHide: function() {},
 })
