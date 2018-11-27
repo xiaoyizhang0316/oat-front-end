@@ -6,15 +6,19 @@ body,html{
 
 .topLogo {
   display: flex;
-  margin-top: 25rpx;
+  margin:20rpx 20rpx 30rpx 10rpx
 }
 
-.logo{
-  margin-left:50rpx;  
+.topLogoImg{
+  margin:10rpx 0 0 20rpx;
+  height:70rpx;
+  width:70rpx;
 }
 
 .Date {
-  margin-left: 53%;
+  position:absolute;
+  right: 30rpx;
+  margin:30rpx 0;
 }
 
 .title {
@@ -56,20 +60,22 @@ body,html{
   margin-top: 15rpx;
 }
 
+
 .share-detail {
   margin: 30rpx 40rpx 30rpx 40rpx;
   font-size: 24rpx;
 }
 
 .shareImg {
-  margin: 40rpx 50rpx 40rpx 50rpx;
-  display: float;
+  margin:40rpx 80rpx 40rpx 80rpx;
+  display:flex;
+  justify-content:space-around;
+
 }
 
 .detailImg {
-  height: 190rpx;
-  width: 190rpx;
-  padding: 1%;
+  height: 160rpx;
+  width: 160rpx;
 }
 
 .shareButton {

@@ -2,7 +2,7 @@
 .item-container {
   display: flex;
   border: 1px solid #dae3f2;
-  background-color: #f7f8f9;
+  background-color: #fcfdff;
   flex-direction: row;
 }
 
@@ -25,17 +25,19 @@
 
 .description{
   font-size: 40rpx;
-  font-weight: 700;
+  font-weight: 500;
+  color: #353535
 }
 
 .time {
   font-size: 26rpx;
   font-weight: 500;
+  color:#888888;
 }
 
 .reward {
-  font-size:40rpx 0 0 20rpx;
-  font-weight:600;
+  font-size:34rpx;
+  font-weight:500;
   padding:70rpx 0;
   position:absolute;
   right:50rpx;

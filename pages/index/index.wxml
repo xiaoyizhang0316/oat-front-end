@@ -12,13 +12,13 @@
   <view wx:for="{{tasks}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{item.id}}">
     <view class='topTitle'>
       <text>{{item.title}}</text>
-      <image src='../../images/icons/collect.png' class='logoImg'></image>
+      <image src="{{item.material.brand.logo}}" class='logoImg' mode="aspectFit"></image>
     </view>
     <image src="{{item.material.imgs[0]}}" class="cover"></image>
     <view class='taskDescription'>{{item.description}}</view>
     <view class="desc">
       <view class="left">
-        <text>发布时间：{{item.created_at}}</text>
+        <text>开始时间：{{item.start_at}}</text>
       </view>
       <view class="right">
         <text style="margin-top:10rpx;color:darkgray">截止日期：{{item.finish_at}}</text>

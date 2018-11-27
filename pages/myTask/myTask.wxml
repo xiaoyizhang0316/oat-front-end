@@ -7,7 +7,7 @@
       <text class='time'>截止日期：{{item.finish_at}}</text>
     </view>
     <view class='reward'>
-      任务奖励：￥{{item.single_reward}}
+      ￥{{item.single_reward}}
     </view>
   </view>
 </scroll-view>

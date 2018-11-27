@@ -1,4 +1,6 @@
 // pages/myTask/myTask.js
+
+import dateParser from "../../utils/date.js"
 Page({
 
   /**
@@ -13,6 +15,7 @@ Page({
    */
   onLoad: function (options) {
     var tasks = wx.getStorageSync('tasks');
+    dateParser.parseArrayDate(tasks);
     console.log(tasks);
     this.setData({
       tasks: tasks
