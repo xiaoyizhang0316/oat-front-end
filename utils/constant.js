@@ -2,7 +2,7 @@
 //base urls 
 //const BASE_URL = "https://a.zhenxianghaitao.com/oat"
 
-const BASE_URL = "https://7c12c393.ngrok.io"
+const BASE_URL = "https://7c12c393.ngrok.io/api"
 
 
 const IMG_BASE = "https://a.zhenxianghaitao.com/storage/newthumbs/"
@@ -10,13 +10,24 @@ const IMG_BASE_THUMB = "https://a.zhenxianghaitao.com/storage/thumbs/"
 const IMG_BANNER = "https://a.zhenxianghaitao.com/storage/"
 
 // functional urls
-// system setting
-const GET_CLIENTID = BASE_URL + "/api/client/getClientId/"
-const GET_REWARD = BASE_URL + "/api/reward"
-const UPDATE_REWARD = BASE_URL + "/api/reward-update"
-const TEST = BASE_URL + "/api/client/1"
-const GET_TASKS = BASE_URL + "/api/task"
-const UPDATE_CLIENT = BASE_URL + "/api/client/update-profile"
+
+
+//reward related
+const GET_REWARD = BASE_URL + "/reward/"
+const CREATE_REWARD = BASE_URL + "/reward"
+const UPDATE_REWARD = BASE_URL+"/reward-update"
+const GET_REWARD_BY_TASKID_AND_CLIENT = BASE_URL +"/getRewardByTaskIdAndClient/"
+const CLAIM_REWARD = BASE_URL + "/reward-claim/"
+//task related
+const GET_TASKS = BASE_URL + "/task"
+
+//client related
+const GET_CLIENTID = BASE_URL + "/client/getClientId/"
+const UPDATE_CLIENT = BASE_URL + "/client/update-profile"
+
+
+const TEST = BASE_URL + "/client/1"
+
 
 module.exports = {
     BASE_URL,
@@ -26,5 +37,9 @@ module.exports = {
     GET_TASKS: GET_TASKS,
     TEST,
     GET_REWARD,
-    UPDATE_CLIENT
-}
+    UPDATE_CLIENT,
+	  UPDATE_REWARD,
+	  CREATE_REWARD,
+	  GET_REWARD_BY_TASKID_AND_CLIENT,
+    CLAIM_REWARD
+	}

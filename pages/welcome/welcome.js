@@ -40,7 +40,7 @@ Page({
         //wait for customer clicking two step auth
         else if (self.data.count < 5 && self.data.approve == false) {
             let clientInfo = wx.getStorageSync('clientInfo')
-            console.log(clientInfo)
+          
             if (!clientInfo) {
                 self.setData({
                     showModal: true
