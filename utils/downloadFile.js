@@ -11,6 +11,7 @@ function downloadSaveFile(obj) {
   let that = this;
   let success = obj.success;
   let fail = obj.fail;
+  let complete = obj.complete;
   let id = "";
   let url = obj.url;
   let result = '';
@@ -43,7 +44,6 @@ function downloadSaveFile(obj) {
                 console.log(res)
               }
             })
-          
           }
         },
         fail: function(e) {
@@ -73,8 +73,11 @@ function downloadSaveFiles(obj) {
   let urls = obj.urls; //下载地址 数组，支持多个 url下载 [url1,url2]
   let savedFilePaths = new Map();
   let urlsLength = urls.length; // 有几个url需要下载
-
+  wx.showLoading({
+    title: '图片下载中',
+  })
   for (let i = 0; i < urlsLength; i++) {
+
     downloadSaveFile({
       url: urls[i],
       success: function(res) {
@@ -82,11 +85,12 @@ function downloadSaveFiles(obj) {
         //一个文件下载保存成功
         let savedFilePath = res;
         savedFilePaths.set(i, savedFilePath);
-        console.info("savedFilePath:%s", savedFilePath);
+        console.log("savedFilePath:%s", savedFilePath);
         if (savedFilePaths.size == urlsLength) {
           console.log(savedFilePaths.size + 'and ' + urlsLength) //如果所有的url 才算成功
           if (success) {
             console.log(success)
+            wx.hideLoading()
             success(savedFilePaths)
           }
         }

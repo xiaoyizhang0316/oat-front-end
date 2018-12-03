@@ -14,6 +14,7 @@ const IMG_BANNER = "https://a.zhenxianghaitao.com/storage/"
 
 //reward related
 const GET_REWARD = BASE_URL + "/reward/"
+const GET_REWARDS = BASE_URL + "/reward"
 const CREATE_REWARD = BASE_URL + "/reward"
 const UPDATE_REWARD = BASE_URL+"/reward-update"
 const GET_REWARD_BY_TASKID_AND_CLIENT = BASE_URL +"/getRewardByTaskIdAndClient/"
@@ -41,5 +42,6 @@ module.exports = {
 	  UPDATE_REWARD,
 	  CREATE_REWARD,
 	  GET_REWARD_BY_TASKID_AND_CLIENT,
-    CLAIM_REWARD
+    CLAIM_REWARD,
+    GET_REWARDS
 	}

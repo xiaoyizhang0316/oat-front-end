@@ -1,13 +1,16 @@
 <!--pages/myTask/myTask.wxml-->
 <scroll-view scroll-y="true"> 
-  <view wx:for="{{tasks}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{item.id}}">
-    <image src='../../images/icons/collect.png' class='logoImg'></image>
+  <view wx:for="{{tasks}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{item.oat_task_id}}">
+    <image src='{{item.oat_task.brand}}' class='logoImg'></image>
     <view class='taskInfo'>
-      <text class='description'>{{item.description}}</text>
+      <text class='description'>{{item.oat_task.title}}</text>
       <text class='time'>截止日期：{{item.finish_at}}</text>
     </view>
     <view class='reward'>
-      ￥{{item.single_reward}}
+      <text>
+        {{item.status}}
+      </text>
+      ￥{{item.amount}}
     </view>
   </view>
 </scroll-view>

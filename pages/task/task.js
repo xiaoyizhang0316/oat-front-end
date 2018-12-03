@@ -12,6 +12,7 @@ Page({
   data: {
     url: '',
     description: null,
+    materialDescription: null,
     currentTask: '',
     reward: '',
     status:''
@@ -20,54 +21,54 @@ Page({
   shareImg: function () {
     var self = this;
     wx.setClipboardData({
-      data: self.data.description,
-      success(res) {
-        wx.getClipboardData({
-          success(res) {
-            console.log(res.data) // data
+      data: self.data.currentTask.description,
+      success(temp) {
+        download.downloadSaveFiles({
+          urls: self.data.url,
+          success: function (res) {
+            console.log(res);
+            //create a reward record in server
+            //create reward record 
+            let url = COM.load('CON').CREATE_REWARD
+            COM.load('NetUtil').netUtil(url, "POST", {
+              "oatTaskId": self.data.currentTask.id
+            }, (reward) => {
+              if (reward) {
+                self.setData({
+                  reward: reward,
+                  status: reward.status
+                })
+              }
+            })
+            wx.hideLoading();
+            wx.showToast({
+              title: "下载任务成功",
+              duration: 1500,
+              mask: true
+            });
+            console.log(res)
+          },
+          fail: function (e) {
+            wx.hideLoading()
+            console.info("下载失败");
           }
         })
       }
     })
-    download.downloadSaveFiles({
-      urls: self.data.url,
-      success: function (res) {
-        console.log(res);
-        //create a reward record in server
-        //create reward record 
-        let url = COM.load('CON').CREATE_REWARD
-        COM.load('NetUtil').netUtil(url, "POST", {
-          "oatTaskId": self.data.currentTask.id
-        }, (reward) => {
-          if (reward) {
-            self.setData({
-              reward: reward,
-              status: reward.status
-            })
-          }
-        })
-
-        wx.showToast({
-          title: "下载任务成功",
-          duration: 1500,
-          mask: true
-        });
-        console.log(res)
-      },
-      fail: function (e) {
-        console.info("下载失败");
-      }
-    });
   },
 
   uploadScreenshot: function () {
     var self = this;
+
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
+        wx.showLoading({
+          title: '图片上传中',
+        })
         const tempFilePaths = res.tempFilePaths;
         console.log("---------------------------------------------")
         console.log(tempFilePaths);
@@ -90,18 +91,29 @@ Page({
           },
           header: {
             'content-type': 'multipart/form-data',
-            'Authorization': 'Bearer ' + token
+            'Authorization': 'Bearer ' + token,
+            'Accept': 'application/json'
           },
           success(res) {
-            console.dir(res.status)
+            console.dir(res)
+            console.dir(JSON.parse(res.data))
+            wx.hideLoading()
             wx.showToast({
-              title: "上传成功",
+              title: "上传图片成功",
               duration: 1500,
               mask: true
             });
             self.setData({
-              reward: res,
-              status: res.status
+              reward: JSON.parse(res.data),
+              status: JSON.parse(res.data).status
+            })
+            
+          },
+          fail(res) {
+            wx.hideLoading();
+            wx.showToast({
+              title:'上传图片失败',
+              duration: 1500
             })
           }
         })
@@ -122,6 +134,10 @@ Page({
 
   },
 
+  parseDescription: function(str) {
+    return str.split('\r')
+  },
+
   onLoad: function (e) {
     console.log("task_detail_onload")
     let self = this
@@ -136,8 +152,9 @@ Page({
           currentTask = task
           console.log(task)
           self.setData({
+            materialDescription: self.parseDescription(task.material.description),
             url: task.material.imgs,
-            description: task.description
+            description: self.parseDescription(task.description)
           })
           break
         }
