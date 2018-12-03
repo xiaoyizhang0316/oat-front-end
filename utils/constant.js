@@ -1,8 +1,8 @@
 //url相关
 //base urls 
-//const BASE_URL = "https://a.zhenxianghaitao.com/oat"
+const BASE_URL = "https://a.zhenxianghaitao.com/public/api"
 
-const BASE_URL = "https://7c12c393.ngrok.io/api"
+//const BASE_URL = "https://81859be0.ngrok.io/api"
 
 
 const IMG_BASE = "https://a.zhenxianghaitao.com/storage/newthumbs/"
