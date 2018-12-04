@@ -12,11 +12,13 @@ App({
 		// 用户信息
 		clientId: null,
 		clientInfo: null,
-		token: null
+		token: null,
+    clickFlag:''
 	},
 	onLaunch: function () {
-		console.log("app.js")
+		console.log("app.js");
 		var self = this
+    self.globalData.clickFlag = false
 		//登陆则刷新任务
 
 		//检查缓存

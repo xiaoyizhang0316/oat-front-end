@@ -27,7 +27,10 @@
     <view class='shareImg'>
       <image src='{{item}}' wx:for='{{currentTask.material.imgs}}' class='detailImg'></image>
     </view>
-    <view wx:if='{{status==0}}' class='shareButton' bindtap='shareImg'>
+    <view class='{{buttonClass}}' bindtap = '{{buttonMethod}}'>
+      {{buttonText}}
+    </view>
+    <!-- <view wx:if='{{status==0}}' class='shareButton' bindtap='shareImg'>
       一键转发
     </view>
     <view wx:if='{{status==(1||2)}}' class='shareButton' bindtap='uploadScreenshot'>
@@ -42,10 +45,10 @@
     <view wx:if='{{status==5}}' class='shareButton'>
       已领取
     </view>
-    <view wx:if='{{status==6}}' class='shareButton'>
+    <view wx:if='{{status==6}}' class='shareButton' bindtap='uploadScreenshot'>
       再次上传
-    </view>
-    <view wx:if='{{status==6}}' bindtap='uploadScreenshot' class='errorInfo'>
+    </view> -->
+    <view wx:if='{{status==6}}'  class='errorInfo'>
       审核失败，请再次上传
     </view>
 

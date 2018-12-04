@@ -8,7 +8,11 @@ Page({
     // data
     data: {
       thumb:'',
-      nickName:''
+      nickName:'',
+      myTaskFlag:'',
+      faqFlag:'',
+      reportFlag:'',
+      aboutUsFlag:''
     },
 
 
@@ -17,30 +21,48 @@ Page({
        thumb:app.globalData.clientInfo.avatarUrl,
        nickName:app.globalData.clientInfo.nickName
      })
+     app.globalData.clickFlag = false
     },
 
-    goToMyTask:function() {
-      wx.navigateTo({
-        url: '../myTask/myTask',
-      })
+    goToMyTask:function(e) {
+      let self = this
+      if(!app.globalData.clickFlag){
+        app.globalData.clickFlag = true
+        wx.navigateTo({
+          url: '../myTask/myTask',
+        })
+      }
     },
 
     goToFAQ:function(){
-      wx.navigateTo({
-        url: '../FAQ/FAQ',
-      })
+      let self = this
+      if (!app.globalData.clickFlag){
+        app.globalData.clickFlag = true
+        wx.navigateTo({
+          url: '../FAQ/FAQ',
+        })
+      }
     },
 
     goToReport:function() {
-      wx.navigateTo({
-        url: '../report/report',
-      })
+      let self = this
+      if (!app.globalData.clickFlag){
+        app.globalData.clickFlag = true
+        wx.navigateTo({
+          url: '../report/report',
+        })
+      }
     },
 
     goToAboutUs:function() {
-      wx.navigateTo({
-        url: '../aboutUs/aboutUs',
-      })
+      let self = this
+      if (!app.globalData.clickFlag){
+        app.globalData.clickFlag = true
+        wx.navigateTo({
+          url: '../aboutUs/aboutUs',
+        })
+      }
+
     },
 
 

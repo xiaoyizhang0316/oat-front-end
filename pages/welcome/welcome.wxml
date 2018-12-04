@@ -9,7 +9,7 @@
 <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
 <view class="modal-dialog" wx:if="{{showModal}}">
     <view class="modal-content">
-        <text class="privacyText">是否允许燕麦网访问您的个人信息?</text>
+        <text class="privacyText">是否允许澳麦吧访问您的个人信息?</text>
     </view>
     <view class="modal-footer">
 	<button open-type="getUserInfo" class="btn-confirm" lang="zh_CN" bindgetuserinfo="onConfirm" bindtap='onBindTap'>允许</button>

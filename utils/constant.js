@@ -2,7 +2,7 @@
 //base urls 
 //const BASE_URL = "https://a.zhenxianghaitao.com/oat"
 
-const BASE_URL = "https://7c12c393.ngrok.io/api"
+const BASE_URL = "https://a.zhenxianghaitao.com/public/api"
 
 
 const IMG_BASE = "https://a.zhenxianghaitao.com/storage/newthumbs/"

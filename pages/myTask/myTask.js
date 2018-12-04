@@ -1,6 +1,7 @@
 // pages/myTask/myTask.js
 var COM = require('../../utils/common.js')
 import dateParser from "../../utils/date.js"
+const app = getApp();
 Page({
 
   /**
@@ -68,14 +69,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    app.globalData.clickFlag = false
   },
 
   showDetail(event) {
     console.log(event)
-    wx.navigateTo({
-      url: '../task/task?taskId=' + event.currentTarget.id,
-    });
+    if(!app.globalData.clickFlag){
+      app.globalData.clickFlag = true
+      wx.navigateTo({
+        url: '../task/task?taskId=' + event.currentTarget.id,
+      });
+    }
   },
 
   /**

@@ -21,6 +21,17 @@
   border-bottom:1px solid #dae3f2;
 }
 
+.btn {
+  border:none;
+  text-align:left;
+  padding:0;
+  margin:0;
+  line-height:1.5;
+}
+button::after {
+  border: none;
+}
+
 .menuOption {
   margin:0 0 0 60rpx;
   font-size:36rpx;

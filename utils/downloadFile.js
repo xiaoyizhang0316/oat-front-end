@@ -6,6 +6,7 @@
 /**
  * 下载保存一个文件
  */
+const app = getApp();
 function downloadSaveFile(obj) {
   console.log(obj)
   let that = this;
@@ -42,6 +43,7 @@ function downloadSaveFile(obj) {
               },
               complete(res) {
                 console.log(res)
+                complete(res)
               }
             })
           }
@@ -100,6 +102,15 @@ function downloadSaveFiles(obj) {
         if (fail) {
           fail(e);
         }
+      },
+      complete: function(e){
+        console.log(e)
+        let savedFilePath = e;
+        savedFilePaths.set(i, savedFilePath);
+        if (savedFilePaths.size == urlsLength){
+            wx.hideLoading()
+          }
+        app.globalData.clickFlag = false
       }
     })
   }
