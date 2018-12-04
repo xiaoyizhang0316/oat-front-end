@@ -12,7 +12,14 @@
   <view wx:for="{{tasks}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{item.id}}">
     <view class='topTitle'>
       <text>{{item.title}}</text>
-      <image src="{{item.material.brand.logo}}" class='logoImg' mode="aspectFit"></image>
+      <view style='position:absolute;right:20rpx;display:flex'>
+        <image src='../../images/icons/redPackage.png' class='redPackage'></image>
+        <text style='font-size:26rpx;line-height:0.6;margin-right:20rpx'>
+          参与活动人数:{{item.rewarded}}/{{item.total}}
+        </text>
+        <image src="{{item.material.brand.logo}}" class='logoImg' mode="aspectFit"></image>
+      </view>
+     
     </view>
     <image src="{{item.material.imgs[0]}}" class="cover"></image>
     <view class='taskDescription'>{{item.description}}</view>

@@ -8,8 +8,8 @@
   <view class='title'>
     {{currentTask.title}}
   </view>
-  <view class='description'>
-    {{currentTask.description}}
+  <view class='description' wx:for='{{description}}'>
+    {{item}}
   </view>
   <view class='endDate'>
     活动截止日期：{{currentTask.finish_at}}
@@ -21,8 +21,8 @@
       <image src="{{currentTask.material.brand.logo}}" class='logoImg'></image>
     </view>
 
-    <view class='share-detail'>
-      {{currentTask.material.description}}
+    <view class='share-detail' wx:for='{{materialDescription}}'>
+      {{item}}
     </view>
     <view class='shareImg'>
       <image src='{{item}}' wx:for='{{currentTask.material.imgs}}' class='detailImg'></image>

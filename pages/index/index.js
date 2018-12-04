@@ -27,6 +27,7 @@ Page({
 	onShow(){
 		var tasks = wx.getStorageSync('tasks');
     dateParser.parseArrayDate(tasks);
+    console.log(tasks)
 		this.setData({
 			tasks : tasks
 		})
