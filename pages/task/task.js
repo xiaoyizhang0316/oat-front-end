@@ -19,8 +19,9 @@ Page({
 		status: ''
 	},
 
-	shareImg: function () {
+	shareImg: function (e) {
 		var self = this;
+		
 		wx.setClipboardData({
 			data: self.data.currentTask.description,
 			success(temp) {
@@ -37,7 +38,8 @@ Page({
 							if (reward) {
 								self.setData({
 									reward: reward,
-									status: reward.status
+									status: reward.status,
+									
 								})
 							}
 						})
@@ -58,9 +60,9 @@ Page({
 		})
 	},
 
-	uploadScreenshot: function () {
+	uploadScreenshot: function (e) {
 		var self = this;
-
+		console.log('form发生了submit事件，fromId为：', e.detail.formId)
 		wx.chooseImage({
 			count: 1,
 			sizeType: ['original', 'compressed'],
@@ -88,7 +90,8 @@ Page({
 					filePath: tempFilePaths[0],
 					name: 'proof',
 					formData: {
-						'oatRewardId': self.data.reward.id
+						'oatRewardId': self.data.reward.id,
+						'formId': e.detail.formId
 					},
 					header: {
 						'content-type': 'multipart/form-data',
