@@ -29,10 +29,8 @@
     </view>
 
     <form bindsubmit="{{buttonMethod}}" report-submit>
-      <button class="btn" form-type="submit" data-type="click">
-        <view class='{{buttonClass}}' >
+      <button class="{{buttonClass}}" form-type="submit" data-type="click">
           <text class='buttonText'>{{buttonText}}</text>
-        </view>
       </button>  
     </form>
     <!-- <view wx:if='{{status==0}}' class='shareButton' bindtap='shareImg'>

@@ -220,6 +220,18 @@ Page({
           status: res.status
         })
         self.setButton(res.status)
+        wx.showModal({
+          title: '领取成功',
+          content: '点击返回首页',
+          showCancel: false,
+          success(res){
+            if(res.confirm){
+              wx.switchTab({
+                url: '../index/index',
+              })
+            }
+          }
+        })
       })
     }
   },
@@ -281,6 +293,20 @@ Page({
   },
   onShow: function(e) {
     app.globalData.clickFlag = false
+    if (this.data.currentTask.status == 5) {
+      wx.showModal({
+        title: '该任务已经领取',
+        content: '点击返回首页',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '../index/index',
+            })
+          }
+        }
+      })
+    }
     console.log("on show")
   },
   onHide: function() {},
