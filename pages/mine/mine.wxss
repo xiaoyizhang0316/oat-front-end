@@ -48,3 +48,25 @@ button::after {
 .menuLable {
   margin: 30rpx 0 30rpx 65%;
 }
+
+.customerService {
+  display:flex;
+  flex-flow:column;
+  align-items:center;
+  height: 180rpx;
+  width: 180rpx;
+}
+
+.customerService:active {
+  filter: opacity(0.4)
+}
+
+.serviceImg {
+  width: 180rpx;
+  height: 180rpx;
+}
+
+.serviceText {
+  margin: 5%;
+  text-align: center;
+}

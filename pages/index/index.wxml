@@ -21,7 +21,7 @@
       </view>
      
     </view>
-    <image src="{{item.material.imgs[0]}}" class="cover"></image>
+    <image src="{{item.material.imgs[0]}}" class="cover" mode='aspectFit'></image>
     <view class='taskDescription'>{{item.description}}</view>
     <view class="desc">
       <view class="left">

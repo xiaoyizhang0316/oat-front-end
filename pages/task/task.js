@@ -8,84 +8,93 @@ const urlList = [
 const app = getApp();
 
 Page({
-
   data: {
     url: '',
     description: null,
     materialDescription: null,
     currentTask: '',
     reward: '',
-    status:'',
-    buttonText:'',
-    buttonMethod:'',
-    buttonClass:''
+    status: '',
+    buttonText: '',
+    buttonMethod: '',
+    buttonClass: ''
   },
 
-  setButton: function(status){
+  setButton: function(status) {
     console.log('call setButton')
     let self = this
-    switch(status){
-      case 0: self.setData({
-        buttonText: '一键转发',
-        buttonMethod: 'shareImg',
-        buttonClass: 'shareButton'
-      })
-      break;
+    switch (status) {
+      case 0:
+        self.setData({
+          buttonText: '一键转发',
+          buttonMethod: 'shareImg',
+          buttonClass: 'shareButton'
+        })
+        break;
       case 1:
-      case 2: self.setData({
-        buttonText: '上传截图',
-        buttonMethod: 'uploadScreenshot',
-        buttonClass: 'shareButton'
-      })
-      break;
-      case 3: self.setData({
-        buttonText: '审核中...',
-        buttonMethod: '',
-        buttonClass: 'grayButton'
-      })
-      break;
-      case 4: self.setData({
-        buttonText: '领取奖励',
-        buttonMethod: 'getReward',
-        buttonClass: 'shareButton'
-      })
-      break;
-      case 5: self.setData({
-        buttonText: '已领取',
-        buttonMethod: '',
-        buttonClass: 'shareButton'
-      })
-      break;
-      case 6: self.setData({
-        buttonText: '再次上传',
-        buttonMethod: 'uploadScreenshot',
-        buttonClass: 'shareButton'
-      })
-      break;
-      default: self.setData({
-        buttonText: '一键转发',
-        buttonMethod: 'shareImg',
-        buttonClass: 'shareButton'
-      })
+      case 2:
+        self.setData({
+          buttonText: '上传截图',
+          buttonMethod: 'uploadScreenshot',
+          buttonClass: 'shareButton'
+        })
+        break;
+      case 3:
+        self.setData({
+          buttonText: '审核中...',
+          buttonMethod: '',
+          buttonClass: 'grayButton'
+        })
+        break;
+      case 4:
+        self.setData({
+          buttonText: '领取奖励',
+          buttonMethod: 'getReward',
+          buttonClass: 'shareButton'
+        })
+        break;
+      case 5:
+        self.setData({
+          buttonText: '已领取',
+          buttonMethod: '',
+          buttonClass: 'shareButton'
+        })
+        break;
+      case 6:
+        self.setData({
+          buttonText: '再次上传',
+          buttonMethod: 'uploadScreenshot',
+          buttonClass: 'shareButton'
+        })
+        break;
+      default:
+        self.setData({
+          buttonText: '一键转发',
+          buttonMethod: 'shareImg',
+          buttonClass: 'shareButton'
+        })
     }
   },
 
-  shareImg: function () {
+  shareImg: function(e) {
+    console.log(e)
+    let formID = e.detail.formId
     var self = this;
-    if(!app.globalData.clickFlag){
+    if (!app.globalData.clickFlag) {
       app.globalData.clickFlag = true
       wx.setClipboardData({
         data: self.data.currentTask.description,
         success(temp) {
           download.downloadSaveFiles({
             urls: self.data.url,
-            success: function (res) {
+            success: function(res) {
               console.log(res);
               //create a reward record in server
               //create reward record 
               let url = COM.load('CON').CREATE_REWARD
               COM.load('NetUtil').netUtil(url, "POST", {
-                "oatTaskId": self.data.currentTask.id
+                "oatTaskId": self.data.currentTask.id,
+                "formId":formID
               }, (reward) => {
                 if (reward) {
                   self.setData({
@@ -104,7 +113,7 @@ Page({
               });
               console.log(res)
             },
-            fail: function (e) {
+            fail: function(e) {
               wx.hideLoading()
               app.globalData.clickFlag = false
               console.info("下载失败");
@@ -115,10 +124,10 @@ Page({
     }
   },
 
-  uploadScreenshot: function () {
+  uploadScreenshot: function(e) {
     var self = this;
-
-    if(!app.globalData.clickFlag){
+    let formID = e.detail.formId
+    if (!app.globalData.clickFlag) {
       app.globalData.clickFlag = true
       wx.chooseImage({
         count: 1,
@@ -147,7 +156,8 @@ Page({
             filePath: tempFilePaths[0],
             name: 'proof',
             formData: {
-              'oatRewardId': self.data.reward.id
+              'oatRewardId': self.data.reward.id,
+              'formId': formID
             },
             header: {
               'content-type': 'multipart/form-data',
@@ -179,17 +189,18 @@ Page({
               })
             }
           })
-
         }
       })
     }
   },
 
-  getReward: function() {
-    if(!app.globalData.clickFlag){
+  getReward: function(e) {
+    let formID = e.detail.formId
+    if (!app.globalData.clickFlag) {
       app.globalData.clickFlag = true
       let url = COM.load('CON').CLAIM_REWARD + this.data.reward.id;
       COM.load('NetUtil').netUtil(url, "GET", {
+        "formId": formID
       }, (res) => {
         app.globalData.clickFlag = false
         this.setData({
@@ -205,7 +216,7 @@ Page({
     return str.split('\r')
   },
 
-  onLoad: function (e) {
+  onLoad: function(e) {
     console.log("task_detail_onload")
     let self = this
     if (Object.prototype.toString.call(e) !== '[object Undefined]' && Object.prototype.toString.call(e.taskId) !== '[object Undefined]') {
@@ -230,7 +241,7 @@ Page({
           title: '错误',
           content: '此任务不存在或已经结束',
           showCancel: false,
-          success: function (e) {
+          success: function(e) {
             wx.switchTab({
               url: '/pages/index/index',
             })
@@ -251,15 +262,14 @@ Page({
               reward: data,
               status: data.status
             })
-
           }
         })
       }
     }
   },
-  onShow: function (e) {
+  onShow: function(e) {
     app.globalData.clickFlag = false
     console.log("on show")
   },
-  onHide: function () { },
+  onHide: function() {},
 })

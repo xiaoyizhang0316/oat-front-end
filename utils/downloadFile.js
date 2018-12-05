@@ -8,19 +8,19 @@
  */
 const app = getApp();
 function downloadSaveFile(obj) {
-  console.log(obj)
-  let that = this;
-  let success = obj.success;
-  let fail = obj.fail;
-  let complete = obj.complete;
-  let id = "";
-  let url = obj.url;
-  let result = '';
-  if (obj.id) {
-    id = obj.id;
-  } else {
-    id = url;
-  }
+	console.log(obj)
+	let that = this;
+	let success = obj.success;
+	let fail = obj.fail;
+	let complete = obj.complete;
+	let id = "";
+	let url = obj.url;
+	let result = '';
+	if (obj.id) {
+		id = obj.id;
+	} else {
+		id = url;
+	}
 
   // console.info("%s 开始下载。。。", obj.url);
   wx.downloadFile({
@@ -63,22 +63,23 @@ function downloadSaveFile(obj) {
       }
     }
   })
+	
 }
 /**
  * 多文件下载并且保存，强制规定，必须所有文件下载成功才算返回成功
  */
 function downloadSaveFiles(obj) {
-  // console.info("准备下载。。。");
-  let that = this;
-  let success = obj.success; //下载成功
-  let fail = obj.fail; //下载失败
-  let urls = obj.urls; //下载地址 数组，支持多个 url下载 [url1,url2]
-  let savedFilePaths = new Map();
-  let urlsLength = urls.length; // 有几个url需要下载
-  wx.showLoading({
-    title: '图片下载中',
-  })
-  for (let i = 0; i < urlsLength; i++) {
+	// console.info("准备下载。。。");
+	let that = this;
+	let success = obj.success; //下载成功
+	let fail = obj.fail; //下载失败
+	let urls = obj.urls; //下载地址 数组，支持多个 url下载 [url1,url2]
+	let savedFilePaths = new Map();
+	let urlsLength = urls.length; // 有几个url需要下载
+	wx.showLoading({
+		title: '图片下载中',
+	})
+	for (let i = 0; i < urlsLength; i++) {
 
     downloadSaveFile({
       url: urls[i],
@@ -116,5 +117,6 @@ function downloadSaveFiles(obj) {
   }
 }
 module.exports = {
-  downloadSaveFiles: downloadSaveFiles
+	downloadSaveFiles: downloadSaveFiles
 }
+

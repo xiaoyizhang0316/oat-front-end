@@ -27,14 +27,24 @@
     <view class='shareImg'>
       <image src='{{item}}' wx:for='{{currentTask.material.imgs}}' class='detailImg'></image>
     </view>
-    <view class='{{buttonClass}}' bindtap = '{{buttonMethod}}'>
-      {{buttonText}}
-    </view>
+
+    <form bindsubmit="{{buttonMethod}}" report-submit>
+      <button class="btn" form-type="submit" data-type="click">
+        <view class='{{buttonClass}}' >
+          <text class='buttonText'>{{buttonText}}</text>
+        </view>
+      </button>  
+    </form>
     <!-- <view wx:if='{{status==0}}' class='shareButton' bindtap='shareImg'>
       一键转发
     </view>
-    <view wx:if='{{status==(1||2)}}' class='shareButton' bindtap='uploadScreenshot'>
-      上传截图
+    <view wx:if='{{status==(1||2)}}' class='shareButton'>
+     <form bindsubmit="uploadScreenshot" report-submit = "true">
+  
+    <button formType="submit" >上传截图</button>
+  
+	</form>
+     
     </view>
     <view wx:if='{{status==3}}' class='grayButton'>
       审核中...
@@ -51,11 +61,5 @@
     <view wx:if='{{status==6}}'  class='errorInfo'>
       审核失败，请再次上传
     </view>
-
-
-
-
   </view>
-
-
 </view>

@@ -1,15 +1,31 @@
 <view>
-  <view class='userInfo'>
-    <image src='{{thumb}}' class='userImg'></image>
-    <text class='userNickName'>{{nickName}}</text>
-  </view>
+    <view class='userInfo'>
+        <image src='{{thumb}}' class='userImg'></image>
+        <text class='userNickName'>{{nickName}}</text>
+    </view>
 
-  <view class='menu'>
-      <view class='menuOption' bindtap='goToMyTask'>我的任务 <text class='menuLable'>></text></view>
-      <view class='menuOption' bindtap='goToFAQ'>常见问题 <text class='menuLable'>></text></view>
-      <view class='menuOption' bindtap='goToReport'>意见反馈 <text class='menuLable'>></text></view>
-      <view class='menuOption' bindtap='goToAboutUs'>关于我们 <text class='menuLable'>></text></view>
-  </view>
+    <view class='menu'>
+        <view class='menuOption' bindtap='goToMyTask'>我的任务
+            <text class='menuLable'>></text>
+        </view>
+        <view class='menuOption' bindtap='goToFAQ'>常见问题
+            <text class='menuLable'>></text>
+        </view>
+        <view class='menuOption' bindtap='goToReport'>意见反馈
+            <text class='menuLable'>></text>
+        </view>
+        <view class='menuOption' bindtap='goToAboutUs'>关于我们
+            <text class='menuLable'>></text>
+        </view>
 
+    </view>
+    <button open-type="contact" class='customerService'>
+      <image src='../../images/icons/service.png' class='serviceImg'></image>
+    </button>
+    <view class='serviceText'>
+      <text >进入客服会话</text>
+    </view>
+    
 
+    
 </view>

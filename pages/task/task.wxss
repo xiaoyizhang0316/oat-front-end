@@ -78,29 +78,35 @@ body, html {
 }
 
 .shareButton {
-  margin: 40rpx 40% 30rpx 40%;
-  width: 10%;
-  height: 10%;
+  width: 170rpx;
+  height: 170rpx;
   border: 1px solid red;
   border-radius: 50%;
-  padding: 5%;
   font-size: 36rpx;
   font-weight: 600;
   color: white;
   background-color: red;
+  text-align: center;
+  position: relative;
+  right: 27%;
 }
 
 .grayButton {
-  margin: 40rpx 40% 30rpx 40%;
-  width: 10%;
-  height: 10%;
+  width: 170rpx;
+  height: 170rpx;
   border: 1px solid gray;
   border-radius: 50%;
-  padding: 5%;
-  font-size: 30rpx;
+  font-size: 36rpx;
   font-weight: 600;
   color: white;
   background-color: gray;
+  text-align: center;
+  position: relative;
+  right: 27%;
+}
+
+.buttonText {
+  text-align: center;
 }
 
 .shareButton:active {
@@ -110,4 +116,18 @@ body, html {
 .errorInfo {
   color: red;
   margin: 0 0 0 30%;
+}
+
+.btn {
+  border: 0px solid #f7f8f9;
+  text-align: center;
+  margin: 40rpx 40% 30rpx 40%;
+  line-height: 170rpx;
+  border-radius: 50%;
+  height: 170rpx;
+  width: 170rpx;
+}
+
+.btn:active {
+  filter: opacity(0.4);
 }

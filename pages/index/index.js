@@ -19,10 +19,14 @@ Page({
 	
 	//查看详情
 	showDetail(event) {
-    console.log(event)
-		wx.navigateTo({
-			url: '../task/task?taskId=' + event.currentTarget.id,
-		});
+    if(!app.globalData.clickFlag){
+      app.globalData.clickFlag = true;
+      console.log(event)
+      wx.navigateTo({
+        url: '../task/task?taskId=' + event.currentTarget.id,
+      });
+    }
+
 	},
 	onShow(){
 		var tasks = wx.getStorageSync('tasks');
@@ -31,6 +35,7 @@ Page({
 		this.setData({
 			tasks : tasks
 		})
+    app.globalData.clickFlag = false
 		
 		var timestamp = Date.parse(new Date());
 		timestamp = timestamp / 1000;
