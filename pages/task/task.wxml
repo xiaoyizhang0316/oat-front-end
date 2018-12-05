@@ -2,7 +2,7 @@
 
   <view class='topLogo'>
     <image src="{{currentTask.material.brand.logo}}" class='topLogoImg'></image>
-    <text class='Date'>{{currentTask.start_at}}</text>
+    <text class='Date'>活动开始日期：{{currentTask.start_at}}</text>
   </view>
 
   <view class='title'>
@@ -25,7 +25,7 @@
       {{item}}
     </view>
     <view class='shareImg'>
-      <image src='{{item}}' wx:for='{{currentTask.material.imgs}}' class='detailImg'></image>
+      <image src='{{item}}' wx:for='{{currentTask.material.imgs}}' class='detailImg' bindtap='showImg' wx:key="{{index}}" data-id='{{index}}'></image>
     </view>
 
     <form bindsubmit="{{buttonMethod}}" report-submit>

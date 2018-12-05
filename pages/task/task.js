@@ -124,6 +124,14 @@ Page({
     }
   },
 
+  showImg: function(e){
+    let self = this
+    wx.previewImage({
+      current: self.data.currentTask.material.imgs[e.target.dataset.id],
+      urls: self.data.currentTask.material.imgs,
+    })
+  },
+
   uploadScreenshot: function(e) {
     var self = this;
     let formID = e.detail.formId

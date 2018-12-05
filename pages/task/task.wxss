@@ -87,8 +87,8 @@ body, html {
   color: white;
   background-color: red;
   text-align: center;
-  position: relative;
-  right: 27%;
+  position: absolute;
+  right: 0;
 }
 
 .grayButton {
@@ -101,8 +101,8 @@ body, html {
   color: white;
   background-color: gray;
   text-align: center;
-  position: relative;
-  right: 27%;
+  position: absolute;
+  right: 0;
 }
 
 .buttonText {
@@ -121,11 +121,11 @@ body, html {
 .btn {
   border: 0px solid #f7f8f9;
   text-align: center;
-  margin: 40rpx 40% 30rpx 40%;
-  line-height: 170rpx;
+  margin-bottom:25rpx;
+  line-height: 175rpx;
   border-radius: 50%;
-  height: 170rpx;
-  width: 170rpx;
+  height: 175rpx;
+  width: 175rpx;
 }
 
 .btn:active {
