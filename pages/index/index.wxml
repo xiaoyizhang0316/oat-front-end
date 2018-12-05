@@ -1,4 +1,3 @@
-<!--list.wxml-->
 
 <scroll-view scroll-y="true" class='body'> 
   <view class='banner'>
@@ -19,7 +18,6 @@
         </text>
         <image src="{{item.material.brand.logo}}" class='logoImg' mode="aspectFit"></image>
       </view>
-     
     </view>
     <image src="{{item.material.imgs[0]}}" class="cover" mode='aspectFit'></image>
     <view class='taskDescription'>{{item.description}}</view>

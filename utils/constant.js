@@ -1,9 +1,9 @@
 //url相关
 //base urls 
-//const BASE_URL = "https://a.zhenxianghaitao.com/public/api"
+const BASE_URL = "https://a.zhenxianghaitao.com/api"
 
 
-const BASE_URL = "https://81859be0.ngrok.io/api"
+//const BASE_URL = "https://81859be0.ngrok.io/api"
 
 
 

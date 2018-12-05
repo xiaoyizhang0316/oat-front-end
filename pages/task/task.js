@@ -127,7 +127,7 @@ Page({
   uploadScreenshot: function(e) {
     var self = this;
     let formID = e.detail.formId
-    if (!app.globalData.clickFlag) {
+    if (1) {
       app.globalData.clickFlag = true
       wx.chooseImage({
         count: 1,
@@ -137,6 +137,7 @@ Page({
           // tempFilePath可以作为img标签的src属性显示图片
           wx.showLoading({
             title: '图片上传中',
+            mask: true
           })
           const tempFilePaths = res.tempFilePaths;
           console.log("---------------------------------------------")
@@ -185,6 +186,7 @@ Page({
               app.globalData.clickFlag = false
               wx.showToast({
                 title: '上传图片失败',
+                mask: true,
                 duration: 1500
               })
             }
@@ -196,14 +198,16 @@ Page({
 
   getReward: function(e) {
     let formID = e.detail.formId
+    let self = this
     if (!app.globalData.clickFlag) {
       app.globalData.clickFlag = true
       let url = COM.load('CON').CLAIM_REWARD + this.data.reward.id;
       COM.load('NetUtil').netUtil(url, "GET", {
         "formId": formID
       }, (res) => {
+        console.log(res)
         app.globalData.clickFlag = false
-        this.setData({
+        self.setData({
           reward: res,
           status: res.status
         })

@@ -78,6 +78,7 @@ function downloadSaveFiles(obj) {
 	let urlsLength = urls.length; // 有几个url需要下载
 	wx.showLoading({
 		title: '图片下载中',
+    mask: true
 	})
 	for (let i = 0; i < urlsLength; i++) {
 
