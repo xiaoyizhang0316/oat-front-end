@@ -262,8 +262,8 @@ Page({
       }
       if (!currentTask) {
         wx.showModal({
-          title: '错误',
-          content: '此任务不存在或已经结束',
+          title: '提示',
+          content: '此任务奖励已发完或已经结束',
           showCancel: false,
           success: function(e) {
             wx.switchTab({

@@ -1,31 +1,55 @@
-<view>
-    <view class='userInfo'>
-        <image src='{{thumb}}' class='userImg'></image>
-        <text class='userNickName'>{{nickName}}</text>
+<view class="main">
+    <view style='background-color:white;padding:10px;'>
+        <view class="header">
+            <image src="{{thumb}}" class="thumb"></image>
+            <text class="nickname">{{nickName}}</text>
+        </view>
     </view>
 
-    <view class='menu'>
-        <view class='menuOption' bindtap='goToMyTask'>我的任务
-            <text class='menuLable'>></text>
+    <view class="explain-line" style="margin-top:20px;background-color:'#e9e9e9';"  bindtap="goToMyTask">
+        <view class="explain-block">
+            <image style="height:22px;width:22px;" src="../../images/icons/consignee.png"></image>
         </view>
-        <view class='menuOption' bindtap='goToFAQ'>常见问题
-            <text class='menuLable'>></text>
+        <view class="explain-text">我的任务</view>
+        <view class="explain-block">
+            <image style="height:23px;width:23px;" src="../../images/icons/arrow_down.png"></image>
         </view>
-        <view class='menuOption' bindtap='goToReport'>意见反馈
-            <text class='menuLable'>></text>
-        </view>
-        <view class='menuOption' bindtap='goToAboutUs'>关于我们
-            <text class='menuLable'>></text>
-        </view>
-
     </view>
+
+    <view class="explain-line" style="background-color:'#e9e9e9';" bindtap="goToFAQ">
+        <view class="explain-block">
+            <image style="height:22px;width:22px;" src="../../images/icons/help.png"></image>
+        </view>
+        <view class="explain-text">常见问题</view>
+        <view class="explain-block">
+            <image style="height:23px;width:23px;" src="../../images/icons/arrow_down.png"></image>
+        </view>
+    </view>
+
+    <view class="explain-line" style="background-color:'#e9e9e9';" bindtap="goToReport">
+        <view class="explain-block">
+            <image style="height:22px;width:22px;" src="../../images/icons/report.png"></image>
+        </view>
+        <view class="explain-text">意见反馈</view>
+        <view class="explain-block">
+            <image style="height:23px;width:23px;" src="../../images/icons/arrow_down.png"></image>
+        </view>
+    </view>
+
+    <view class="explain-line" style="background-color:'#e9e9e9';" bindtap="goToAboutUs">
+        <view class="explain-block">
+            <image style="height:22px;width:22px;" src="../../images/icons/aboutUs.png"></image>
+        </view>
+        <view class="explain-text">关于我们</view>
+        <view class="explain-block">
+            <image style="height:23px;width:23px;" src="../../images/icons/arrow_down.png"></image>
+        </view>
+    </view>
+
     <button open-type="contact" class='customerService'>
-      <image src='../../images/icons/service.png' class='serviceImg'></image>
+      <image src='../../images/icons/service.png' class='serviceImg' ></image>
     </button>
     <view class='serviceText'>
       <text >进入客服会话</text>
     </view>
-    
-
-    
 </view>

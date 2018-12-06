@@ -21,6 +21,7 @@ Page({
        thumb:app.globalData.clientInfo.avatarUrl,
        nickName:app.globalData.clientInfo.nickName
      })
+     console.log(this.data)
      app.globalData.clickFlag = false
     },
 
