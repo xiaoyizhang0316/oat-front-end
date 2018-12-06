@@ -153,12 +153,15 @@ input-holder {
 }
 
 .customerService {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  height: 180rpx;
-  width: 200rpx;
-  margin-top: 60%;
+  display:flex;
+  flex-flow:column;
+  align-items:center;
+  height:180rpx;
+  width:200rpx;
+  margin:0 37%;
+  position:absolute;
+  bottom:55rpx;
+
 }
 
 .customerService:active {
@@ -171,8 +174,10 @@ input-holder {
 }
 
 .serviceText {
-  margin: 2%;
-  text-align: center;
+  margin:0 38%;
+  position:absolute;
+  bottom:10rpx;
+
 }
 
 button::after{

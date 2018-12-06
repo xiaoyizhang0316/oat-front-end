@@ -14,7 +14,8 @@
     "navigationBarBackgroundColor": "#de3939",
     "navigationBarTitleText": "澳麦吧",
     "navigationBarTextStyle": "white",
-    "backgroundColor": "#eceff4"
+    "backgroundColor": "#eceff4",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#858585",

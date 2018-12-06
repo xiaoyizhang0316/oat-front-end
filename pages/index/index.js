@@ -29,9 +29,11 @@ Page({
 
 	},
 	onShow(){
-		var tasks = wx.getStorageSync('tasks');
+    let self = this
+		let tasks = wx.getStorageSync('tasks');
     dateParser.parseArrayDate(tasks);
-    console.log(tasks)
+    console.log(tasks[1].title.length)
+    tasks = self.parseTitle(tasks)
 		this.setData({
 			tasks : tasks
 		})
@@ -40,6 +42,26 @@ Page({
 		var timestamp = Date.parse(new Date());
 		timestamp = timestamp / 1000;
 		console.log('index show at: ' + timestamp);
+	},
 
-	}
+  parseTitle(task){
+    task.forEach(function(t){
+      if(t.title.length>6)
+      t.title = t.title.slice(0,6) + '...'
+    })
+    return task
+  },
+
+  onPullDownRefresh: function () {
+    app.getTasks();
+    let self = this
+    let tasks = wx.getStorageSync('tasks');
+    dateParser.parseArrayDate(tasks);
+    console.log(tasks[1].title.length)
+    tasks = self.parseTitle(tasks)
+    this.setData({
+      tasks: tasks
+    })
+    wx.stopPullDownRefresh()
+  },
 })

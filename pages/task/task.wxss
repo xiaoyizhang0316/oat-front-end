@@ -82,12 +82,12 @@ body, html {
   height: 170rpx;
   border: 1px solid red;
   border-radius: 50%;
-  font-size: 40rpx;
+  font-size: 140%;
   font-weight: 600;
   color: white;
   background-color: red;
   line-height:50rpx;
-  margin:30rpx 40%;
+  margin:30rpx 38%;
 }
 
 .grayButton {
@@ -95,12 +95,12 @@ body, html {
   height: 170rpx;
   border: 1px solid gray;
   border-radius: 50%;
-  font-size: 40rpx;
+  font-size: 140%;
   font-weight: 600;
   color: white;
   background-color: gray;
   line-height:50rpx;
-  margin:30rpx 40%;
+  margin:30rpx 38%;
 }
 
 .buttonText {

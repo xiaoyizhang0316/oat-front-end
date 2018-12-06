@@ -240,9 +240,9 @@ Page({
     return str.split('\r')
   },
 
-  onLoad: function(e) {
-    console.log("task_detail_onload")
+  prepare: function(e) {
     let self = this
+    app.globalData.clickFlag = false
     if (Object.prototype.toString.call(e) !== '[object Undefined]' && Object.prototype.toString.call(e.taskId) !== '[object Undefined]') {
       let taskId = e.taskId
       let tasks = wx.getStorageSync('tasks')
@@ -265,7 +265,7 @@ Page({
           title: '提示',
           content: '此任务奖励已发完或已经结束',
           showCancel: false,
-          success: function(e) {
+          success: function (e) {
             wx.switchTab({
               url: '/pages/index/index',
             })
@@ -291,9 +291,16 @@ Page({
       }
     }
   },
+
+  onLoad: function(e) {
+    let self = this
+    console.log("task_detail_onload")
+    self.prepare(e)   
+  },
   onShow: function(e) {
-    app.globalData.clickFlag = false
-    if (this.data.currentTask.status == 5) {
+    let self = this
+    self.prepare(e)
+    if (self.data.reward.status == 5) {
       wx.showModal({
         title: '该任务已经领取',
         content: '点击返回首页',
@@ -309,5 +316,36 @@ Page({
     }
     console.log("on show")
   },
+
   onHide: function() {},
+
+  onPullDownRefresh: function () {
+    let self = this
+    let url = COM.load('CON').GET_REWARD_BY_TASKID_AND_CLIENT + self.data.currentTask.id
+    COM.load('NetUtil').netUtil(url, "GET", "", (data) => {
+      console.log(data)
+      self.setButton(data.status)
+      if (data) {
+        self.setData({
+          reward: data,
+          status: data.status
+        })
+      }
+    })
+    if (self.data.reward.status == 5) {
+      wx.showModal({
+        title: '该任务已经领取',
+        content: '点击返回首页',
+        showCancel: false,
+        success(res) {
+          if (res.confirm) {
+            wx.switchTab({
+              url: '../index/index',
+            })
+          }
+        }
+      })
+    }
+    wx.stopPullDownRefresh()
+  },
 })
