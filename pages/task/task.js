@@ -45,6 +45,7 @@ Page({
           buttonMethod3: '',
           buttonClass3: 'grayButton',
           info:'点击一键转发即可复制文字和图片'
+          
         })
         break;
       case 1:

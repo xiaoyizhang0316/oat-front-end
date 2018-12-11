@@ -33,7 +33,7 @@
 
     <view class='progress'>
       <form bindsubmit="{{buttonMethod1}}" report-submit>
-        <button class="{{buttonClass1}}" form-type="submit" data-type="click">
+        <button class="{{buttonClass1}}" form-type="submit" data-type="click" style='background-image:{{}}'>
           <text class='buttonText'>{{buttonText1}}</text>
         </button>
       </form>

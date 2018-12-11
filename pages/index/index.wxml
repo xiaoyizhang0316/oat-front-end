@@ -23,7 +23,7 @@
       </view>
       <view style='margin:0;display:flex'>
         <text style='font-size:26rpx;line-height:0.2;margin:20rpx 0 10rpx 0'>
-          参与活动人数:{{item.rewarded}}/{{item.total}}
+          参与活动人数:{{item.completed}}/{{item.total}}
         </text>
       </view>
     </view>
