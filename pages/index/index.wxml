@@ -13,10 +13,13 @@
       <view style='display:flex'>
         <image src="{{item.material.brand.logo}}" class='logoImg' mode="aspectFit"></image>
         <text>{{item.title}}</text> 
-        <image src='../../images/icons/redPackage.png' class='redPackage'></image>
-        <text style='font-size:26rpx;line-height:0.6;position:absolute;right:20rpx'>
+        <view style='display:flex;position:absolute;right:20rpx'>
+          <image src='../../images/icons/redPackage.png' class='redPackage'></image>
+          <text style='font-size:26rpx;line-height:0.6;'>
           ￥{{item.single_reward}}
-        </text>
+          </text> 
+        </view>
+
       </view>
       <view style='margin:0;display:flex'>
         <text style='font-size:26rpx;line-height:0.2;margin:20rpx 0 10rpx 0'>

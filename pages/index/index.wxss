@@ -61,9 +61,7 @@
 .redPackage {
   height:38rpx;
   width:32rpx;
-  margin:6rpx 0 0 0rpx;
-  position:absolute;
-  right:80rpx;
+  margin:6rpx 5rpx 0 0rpx;
 }
 
 .logoImg {

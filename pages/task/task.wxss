@@ -78,35 +78,33 @@ body, html {
 }
 
 .shareButton {
-  width: 170rpx;
-  height: 170rpx;
+  width: 120rpx;
+  height: 120rpx;
   border: 1px solid red;
   border-radius: 50%;
-  font-size: 140%;
+  font-size: 100%;
   font-weight: 600;
   color: white;
   background-color: red;
-  line-height:50rpx;
-  margin:30rpx 38%;
+  line-height: 38rpx;
 }
 
 .grayButton {
-  width: 170rpx;
-  height: 170rpx;
+  width: 120rpx;
+  height: 120rpx;
   border: 1px solid gray;
   border-radius: 50%;
-  font-size: 140%;
+  font-size: 100%;
   font-weight: 600;
   color: white;
   background-color: gray;
-  line-height:50rpx;
-  margin:30rpx 38%;
+  line-height: 38rpx;
 }
 
 .buttonText {
   text-align: center;
-  position:relative;
-  top:18%;
+  position: relative;
+  top: 18%;
 }
 
 .shareButton:active {
@@ -121,7 +119,7 @@ body, html {
 .btn {
   border: 0px solid #f7f8f9;
   text-align: center;
-  margin-bottom:25rpx;
+  margin-bottom: 25rpx;
   line-height: 175rpx;
   border-radius: 50%;
   height: 175rpx;
@@ -130,4 +128,16 @@ body, html {
 
 .btn:active {
   filter: opacity(0.4);
+}
+
+.progress {
+  display: flex;
+  justify-content: space-around;
+  margin: 0 80rpx;
+}
+
+.rightArrow {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top:7%;
 }

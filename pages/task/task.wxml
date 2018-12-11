@@ -28,11 +28,27 @@
       <image src='{{item}}' wx:for='{{currentTask.material.imgs}}' class='detailImg' bindtap='showImg' wx:key="{{index}}" data-id='{{index}}'></image>
     </view>
 
-    <form bindsubmit="{{buttonMethod}}" report-submit>
-      <button class="{{buttonClass}}" form-type="submit" data-type="click">
-          <text class='buttonText'>{{buttonText}}</text>
-      </button>  
-    </form>
+    <view class='progress'>
+      <form bindsubmit="{{buttonMethod1}}" report-submit>
+        <button class="{{buttonClass1}}" form-type="submit" data-type="click">
+          <text class='buttonText'>{{buttonText1}}</text>
+        </button>
+      </form>
+      <image src='../../images/icons/right-arrow.svg' class='rightArrow'></image>
+      <form bindsubmit="{{buttonMethod2}}" report-submit>
+        <button class="{{buttonClass2}}" form-type="submit" data-type="click">
+          <text class='buttonText'>{{buttonText2}}</text>
+        </button>
+      </form>
+      <image src='../../images/icons/right-arrow.svg' class='rightArrow'></image>
+      <form bindsubmit="{{buttonMethod3}}" report-submit>
+        <button class="{{buttonClass3}}" form-type="submit" data-type="click">
+          <text class='buttonText'>{{buttonText3}}</text>
+        </button>
+      </form>
+    </view>
+
+
     <!-- <view wx:if='{{status==0}}' class='shareButton' bindtap='shareImg'>
       一键转发
     </view>
@@ -56,7 +72,7 @@
     <view wx:if='{{status==6}}' class='shareButton' bindtap='uploadScreenshot'>
       再次上传
     </view> -->
-    <view wx:if='{{status==6}}'  class='errorInfo'>
+    <view wx:if='{{status==6}}' class='errorInfo'>
       审核失败，请再次上传
     </view>
   </view>

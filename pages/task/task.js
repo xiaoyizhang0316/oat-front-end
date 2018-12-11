@@ -15,9 +15,15 @@ Page({
     currentTask: '',
     reward: '',
     status: '',
-    buttonText: '',
-    buttonMethod: '',
-    buttonClass: ''
+    buttonText1: '',
+    buttonMethod1: '',
+    buttonClass1: '',
+    buttonText2: '',
+    buttonMethod2: '',
+    buttonClass2: '',
+    buttonText3: '',
+    buttonMethod3: '',
+    buttonClass3: ''
   },
 
   setButton: function(status) {
@@ -26,52 +32,94 @@ Page({
     switch (status) {
       case 0:
         self.setData({
-          buttonText: '一键转发',
-          buttonMethod: 'shareImg',
-          buttonClass: 'shareButton'
+          buttonText1: '一键转发',
+          buttonMethod1: 'shareImg',
+          buttonClass1: 'shareButton',
+          buttonText2: '上传截图',
+          buttonMethod2: '',
+          buttonClass2: 'grayButton',
+          buttonText3: '领取奖励',
+          buttonMethod3: '',
+          buttonClass3: 'grayButton',
         })
         break;
       case 1:
       case 2:
         self.setData({
-          buttonText: '上传截图',
-          buttonMethod: 'uploadScreenshot',
-          buttonClass: 'shareButton'
+          buttonText1: '一键转发',
+          buttonMethod1: '',
+          buttonClass1: 'grayButton',
+          buttonText2: '上传截图',
+          buttonMethod2: 'uploadScreenshot',
+          buttonClass2: 'shareButton',
+          buttonText3: '领取奖励',
+          buttonMethod3: '',
+          buttonClass3: 'grayButton',
         })
         break;
       case 3:
         self.setData({
-          buttonText: '审核中...',
-          buttonMethod: '',
-          buttonClass: 'grayButton'
+          buttonText1: '一键转发',
+          buttonMethod1: '',
+          buttonClass1: 'grayButton',
+          buttonText2: '审核中...',
+          buttonMethod2: '',
+          buttonClass2: 'grayButton',
+          buttonText3: '领取奖励',
+          buttonMethod3: '',
+          buttonClass3: 'grayButton',
         })
         break;
       case 4:
         self.setData({
-          buttonText: '领取奖励',
-          buttonMethod: 'getReward',
-          buttonClass: 'shareButton'
+          buttonText1: '一键转发',
+          buttonMethod1: '',
+          buttonClass1: 'grayButton',
+          buttonText2: '上传截图',
+          buttonMethod2: '',
+          buttonClass2: 'grayButton',
+          buttonText3: '领取奖励',
+          buttonMethod3: 'getReward',
+          buttonClass3: 'shareButton',
         })
         break;
       case 5:
         self.setData({
-          buttonText: '已领取',
-          buttonMethod: '',
-          buttonClass: 'shareButton'
+          buttonText1: '一键转发',
+          buttonMethod1: '',
+          buttonClass1: 'grayButton',
+          buttonText2: '上传截图',
+          buttonMethod2: '',
+          buttonClass2: 'grayButton',
+          buttonText3: '已领取',
+          buttonMethod3: '',
+          buttonClass3: 'grayButton',
         })
         break;
       case 6:
         self.setData({
-          buttonText: '再次上传',
-          buttonMethod: 'uploadScreenshot',
-          buttonClass: 'shareButton'
+          buttonText1: '一键转发',
+          buttonMethod1: '',
+          buttonClass1: 'grayButton',
+          buttonText2: '再次上传',
+          buttonMethod2: 'uploadScreenshot',
+          buttonClass2: 'shareButton',
+          buttonText3: '领取奖励',
+          buttonMethod3: '',
+          buttonClass3: 'grayButton',
         })
         break;
       default:
         self.setData({
-          buttonText: '一键转发',
-          buttonMethod: 'shareImg',
-          buttonClass: 'shareButton'
+          buttonText1: '一键转发',
+          buttonMethod1: 'shareImg',
+          buttonClass1: 'shareButton',
+          buttonText2: '上传截图',
+          buttonMethod2: '',
+          buttonClass2: 'grayButton',
+          buttonText3: '领取奖励',
+          buttonMethod3: '',
+          buttonClass3: 'grayButton',
         })
     }
   },
