@@ -10,6 +10,7 @@ const app = getApp();
 Page({
   data: {
     url: '',
+    avatars:'',
     description: null,
     materialDescription: null,
     currentTask: '',
@@ -23,7 +24,9 @@ Page({
     buttonClass2: '',
     buttonText3: '',
     buttonMethod3: '',
-    buttonClass3: ''
+    buttonClass3: '',
+    info:'',
+    modalShow: false
   },
 
   setButton: function(status) {
@@ -41,6 +44,7 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
+          info:'点击一键转发即可复制文字和图片'
         })
         break;
       case 1:
@@ -55,6 +59,7 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
+          info: '图片已复制到相册，文字已复制到剪切板，点击上传任务截图'
         })
         break;
       case 3:
@@ -68,6 +73,7 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
+          info: '任务截图已上传，审核中'
         })
         break;
       case 4:
@@ -81,6 +87,7 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: 'getReward',
           buttonClass3: 'shareButton',
+          info: '任务成功，点击即可领取奖励'
         })
         break;
       case 5:
@@ -94,6 +101,7 @@ Page({
           buttonText3: '已领取',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
+          info: '任务奖励已领取'
         })
         break;
       case 6:
@@ -107,6 +115,7 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
+          info: '审核失败，点击再次上传任务截图'
         })
         break;
       default:
@@ -120,6 +129,7 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
+          info: '点击一键转发即可复制文字和图片'
         })
     }
   },
@@ -177,6 +187,18 @@ Page({
     wx.previewImage({
       current: self.data.currentTask.material.imgs[e.target.dataset.id],
       urls: self.data.currentTask.material.imgs,
+    })
+  },
+
+  showQRCode:function(){
+    this.setData({
+      modalShow:true
+    })
+  },
+
+  hideShareModal:function(){
+    this.setData({
+      modalShow:false
     })
   },
 
@@ -328,11 +350,15 @@ Page({
         let url = COM.load('CON').GET_REWARD_BY_TASKID_AND_CLIENT + currentTask.id
         COM.load('NetUtil').netUtil(url, "GET", "", (data) => {
           console.log(data)
-          self.setButton(data.status)
-          if (data) {
+          self.setButton(0)
+          self.setData({
+            avatars:data.avatars
+          })
+          if (data.reward) {
+            self.setButton(data.reward.status)
             self.setData({
-              reward: data,
-              status: data.status
+              reward: data.reward,
+              status: data.reward.status
             })
           }
         })
@@ -372,11 +398,15 @@ Page({
     let url = COM.load('CON').GET_REWARD_BY_TASKID_AND_CLIENT + self.data.currentTask.id
     COM.load('NetUtil').netUtil(url, "GET", "", (data) => {
       console.log(data)
-      self.setButton(data.status)
-      if (data) {
+      self.setButton(0)
+      self.setData({
+        avatars: data.avatars
+      })
+      if (data.reward) {
+        self.setButton(data.reward.status)
         self.setData({
-          reward: data,
-          status: data.status
+          reward: data.reward,
+          status: data.reward.status
         })
       }
     })

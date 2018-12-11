@@ -12,7 +12,8 @@ Page({
       myTaskFlag:'',
       faqFlag:'',
       reportFlag:'',
-      aboutUsFlag:''
+      aboutUsFlag:'',
+      modalShow:false
     },
 
 
@@ -65,6 +66,20 @@ Page({
       }
 
     },
+
+    hideShareModal:function(){
+      this.setData({
+        modalShow:false
+      })
+    },
+    
+    showModal: function(){
+      this.setData({
+        modalShow:true
+      })
+    }
+
+
 
 
 

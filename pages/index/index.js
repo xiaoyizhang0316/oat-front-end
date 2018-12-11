@@ -10,8 +10,13 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad() {
+	onLoad(event) {
 		console.log("index.js")
+    if(event.taskId){
+      wx.navigateTo({
+        url: '../task/task?taskId=' + event.taskId,
+      })
+    }
 		var timestamp = Date.parse(new Date());
 		timestamp = timestamp / 1000;
 		console.log('index load at: ' + timestamp);
@@ -26,8 +31,8 @@ Page({
         url: '../task/task?taskId=' + event.currentTarget.id,
       });
     }
-
 	},
+
 	onShow(){
     let self = this
 		let tasks = wx.getStorageSync('tasks');
