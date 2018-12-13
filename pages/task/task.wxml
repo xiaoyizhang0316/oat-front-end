@@ -63,11 +63,18 @@
       <button bindtap='hideShareModal'>确定</button>
     </view>
     <view class='joinedUser'>
-      共有{{avatars.length}}位用户参与
+      共有{{currentTask.completed}}位用户参与
       <view class='userImg'>
         <image src='{{item}}' wx:for='{{avatars}}' ></image>
       </view>
-      
+    </view>
+    <view class='modalMask' bindtap='hideRedpackageModal' catchtouchmove='preventTouchMove' wx:if='{{redModalShow}}'>
+    </view>
+    <view class="redModalDialog" wx:if="{{redModalShow}}">
+      <text style='text-align:center'>
+        领取红包
+      </text>
+      <image src='../../images/icons/open.png' class='redPackageButton' animation="{{animationData}}" bindtap='getReward'></image>
     </view>
   </view>
 </view>

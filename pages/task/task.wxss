@@ -88,7 +88,7 @@ body, html {
   margin: 10rpx 0;
 }
 
-@media (max-width: 320px) {
+@media (min-width: 20px) {
   .shareButton {
     width: 120rpx;
     height: 120rpx;
@@ -97,7 +97,7 @@ body, html {
     font-size: 0.6rem;
     font-weight: 600;
     color: white;
-    background-color:red;
+    background-color: red;
     line-height: 38rpx;
   }
 
@@ -114,7 +114,33 @@ body, html {
   }
 }
 
-@media (min-width:321px) {
+@media (min-width:350px) {
+  .shareButton {
+    width: 120rpx;
+    height: 120rpx;
+    border: 1px solid red;
+    border-radius: 50%;
+    font-size: 80%;
+    font-weight: 600;
+    color: white;
+    background-color: red;
+    line-height: 38rpx;
+  }
+
+  .grayButton {
+    width: 120rpx;
+    height: 120rpx;
+    border: 1px solid gray;
+    border-radius: 50%;
+    font-size: 80%;
+    font-weight: 600;
+    color: white;
+    background-color: gray;
+    line-height: 38rpx;
+  }
+}
+
+@media (min-width:400px) {
   .shareButton {
     width: 120rpx;
     height: 120rpx;
@@ -220,10 +246,38 @@ body, html {
 .userImg {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 80rpx;
 }
 
 .userImg image {
-  width: 60rpx;
-  height: 60rpx;
-  margin: 2.5% 1%;
+  width: 50rpx;
+  height: 50rpx;
+  margin: 2% 0.2%;
+}
+
+.redModalDialog {
+  width: 640rpx;
+  height: 60%;
+  overflow: hidden;
+  position: fixed;
+  top: 30%;
+  left: 0;
+  z-index: 9999;
+  background: #f9f9f9;
+  margin: -180rpx 55rpx;
+  border-radius: 5%;
+  text-align: center;
+  background-image: url('https://a.zhenxianghaitao.com/thumb/redpack.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.redPackageButton {
+  position: absolute;
+  bottom: 40%;
+  right: 30.5%;
+  width: 250rpx;
+  height: 250rpx;
+  border-radius: 50%;
 }

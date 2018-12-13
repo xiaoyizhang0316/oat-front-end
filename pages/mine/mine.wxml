@@ -48,7 +48,7 @@
 
   <view class="explain-line" style="background-color:'#e9e9e9';margin-top:20rpx" bindtap="showModal">
     <view class="explain-block">
-      <image style="height:22px;width:22px;" src="../../images/icons/aboutUs.png"></image>
+      <image style="height:22px;width:22px;" src="../../images/icons/compose.png"></image>
     </view>
     <view class="explain-text">我也要发布</view>
     <view class="explain-block">

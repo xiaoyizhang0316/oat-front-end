@@ -10,7 +10,7 @@ const app = getApp();
 Page({
   data: {
     url: '',
-    avatars:'',
+    avatars: '',
     description: null,
     materialDescription: null,
     currentTask: '',
@@ -25,8 +25,10 @@ Page({
     buttonText3: '',
     buttonMethod3: '',
     buttonClass3: '',
-    info:'',
-    modalShow: false
+    info: '',
+    modalShow: false,
+    animationData: {},
+    redModalShow: false
   },
 
   setButton: function(status) {
@@ -44,8 +46,8 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
-          info:'点击一键转发即可复制文字和图片'
-          
+          info: '点击一键转发即可复制文字和图片'
+
         })
         break;
       case 1:
@@ -86,7 +88,7 @@ Page({
           buttonMethod2: '',
           buttonClass2: 'grayButton',
           buttonText3: '领取奖励',
-          buttonMethod3: 'getReward',
+          buttonMethod3: 'showRedMenu',
           buttonClass3: 'shareButton',
           info: '任务成功，点击即可领取奖励'
         })
@@ -153,7 +155,7 @@ Page({
               let url = COM.load('CON').CREATE_REWARD
               COM.load('NetUtil').netUtil(url, "POST", {
                 "oatTaskId": self.data.currentTask.id,
-                "formId":formID
+                "formId": formID
               }, (reward) => {
                 if (reward) {
                   self.setData({
@@ -183,7 +185,7 @@ Page({
     }
   },
 
-  showImg: function(e){
+  showImg: function(e) {
     let self = this
     wx.previewImage({
       current: self.data.currentTask.material.imgs[e.target.dataset.id],
@@ -191,15 +193,47 @@ Page({
     })
   },
 
-  showQRCode:function(){
+  showQRCode: function() {
     this.setData({
-      modalShow:true
+      modalShow: true
     })
   },
 
-  hideShareModal:function(){
+  hideShareModal: function() {
+    // const animation = wx.createAnimation({
+    //   duration: 1000
+    // })
+    // let n = 0;
+    // let m = true;
+    // this.animation = animation
+    // setInterval(function () {
+    //   n = n + 1;
+    //   console.log(n);
+    //   if (m) {
+    //     this.animation.rotateY(360 * (n)).step()
+    //     m = !m;
+    //   } else {
+    //     this.animation.rotateY(360 * (n)).step()
+    //     m = !m;
+    //   }
+    //   this.setData({
+    //     animationData: this.animation.export()
+    //   })
+    // }.bind(this), 1000) 
     this.setData({
-      modalShow:false
+      modalShow: false
+    })
+  },
+
+  hideRedpackageModal: function() {
+    this.setData({
+      redModalShow: false
+    })
+  },
+
+  showRedMenu: function() {
+    this.setData({
+      redModalShow: true
     })
   },
 
@@ -276,35 +310,45 @@ Page({
   },
 
   getReward: function(e) {
+    const animation = wx.createAnimation({
+      duration: 3000
+    })
+    this.animation = animation
+    this.animation.rotateY(1080).step()
+    this.setData({
+      animationData: this.animation.export()
+    })
     let formID = e.detail.formId
     let self = this
-    if (!app.globalData.clickFlag) {
-      app.globalData.clickFlag = true
-      let url = COM.load('CON').CLAIM_REWARD + this.data.reward.id;
-      COM.load('NetUtil').netUtil(url, "GET", {
-        "formId": formID
-      }, (res) => {
-        console.log(res)
-        app.globalData.clickFlag = false
-        self.setData({
-          reward: res,
-          status: res.status
-        })
-        self.setButton(res.status)
-        wx.showModal({
-          title: '领取成功',
-          content: '点击返回首页',
-          showCancel: false,
-          success(res){
-            if(res.confirm){
-              wx.switchTab({
-                url: '../index/index',
-              })
+    setTimeout(function() {
+      if (!app.globalData.clickFlag) {
+        app.globalData.clickFlag = true
+        let url = COM.load('CON').CLAIM_REWARD + self.data.reward.id
+        COM.load('NetUtil').netUtil(url, "GET", {
+          "formId": formID
+        }, (res) => {
+          console.log(res)
+          app.globalData.clickFlag = false
+          self.setData({
+            reward: res,
+            status: res.status
+          })
+          self.setButton(res.status)
+          wx.showModal({
+            title: '领取成功',
+            content: '点击返回首页',
+            showCancel: false,
+            success(res) {
+              if (res.confirm) {
+                wx.switchTab({
+                  url: '../index/index'
+                })
+              }
             }
-          }
-        })
-      })
-    }
+          })
+          }, true, 'application/json',false)
+      }
+    }, 2000)
   },
 
   parseDescription: function(str) {
@@ -336,7 +380,7 @@ Page({
           title: '提示',
           content: '此任务奖励已发完或已经结束',
           showCancel: false,
-          success: function (e) {
+          success: function(e) {
             wx.switchTab({
               url: '/pages/index/index',
             })
@@ -353,7 +397,7 @@ Page({
           console.log(data)
           self.setButton(0)
           self.setData({
-            avatars:data.avatars
+            avatars: data.avatars.slice(0, 20)
           })
           if (data.reward) {
             self.setButton(data.reward.status)
@@ -370,7 +414,7 @@ Page({
   onLoad: function(e) {
     let self = this
     console.log("task_detail_onload")
-    self.prepare(e)   
+    self.prepare(e)
   },
   onShow: function(e) {
     let self = this
@@ -394,14 +438,14 @@ Page({
 
   onHide: function() {},
 
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
     let self = this
     let url = COM.load('CON').GET_REWARD_BY_TASKID_AND_CLIENT + self.data.currentTask.id
     COM.load('NetUtil').netUtil(url, "GET", "", (data) => {
       console.log(data)
       self.setButton(0)
       self.setData({
-        avatars: data.avatars
+        avatars: data.avatars.slice(0, 20)
       })
       if (data.reward) {
         self.setButton(data.reward.status)
