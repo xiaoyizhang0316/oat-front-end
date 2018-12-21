@@ -5,7 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    q1Show:false
+  },
 
+  showDetail:function(){
+    let temp = !this.data.q1Show
+    this.setData({
+      q1Show: temp
+    })
   },
 
   /**

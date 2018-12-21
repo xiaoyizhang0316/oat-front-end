@@ -1,1 +1,11 @@
 /* pages/FAQ/FAQ.wxss */
+
+
+.menu{
+  width: 100%;
+  font-size:32rpx;
+}
+
+.menuText{
+  width: 100%;
+}

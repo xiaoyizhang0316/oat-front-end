@@ -1,12 +1,7 @@
 
 <scroll-view scroll-y="true" class='body'> 
   <view class='banner'>
-    <image src='../../images/icons/search.png' class='iconImg'></image>
-    <text class='bannerText'>Brand</text>
-    <image src='../../images/icons/calendar-fill.png' class='iconImg'></image>
-    <text class='bannerText'>Mission</text>
-    <image src='../../images/icons/warning-circle.png' class='iconImg'></image>
-    <text class='bannerText'>Target</text>
+    <image src='../../images/banner.png' style='width:100%'></image> 
   </view>
   <view wx:for="{{tasks}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{item.id}}">
     <view class='topTitle'>
