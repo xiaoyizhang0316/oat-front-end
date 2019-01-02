@@ -63,7 +63,7 @@
       <button bindtap='hideShareModal'>确定</button>
     </view>
     <view class='joinedUser'>
-      共有{{currentTask.completed}}位用户参与
+      共有{{currentTask.applied}}位用户正在做此任务
       <view class='userImg'>
         <image src='{{item}}' wx:for='{{avatars}}' ></image>
       </view>

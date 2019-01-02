@@ -348,7 +348,7 @@ Page({
           })
           }, true, 'application/json',false)
       }
-    }, 2000)
+    }, 1)
   },
 
   parseDescription: function(str) {
