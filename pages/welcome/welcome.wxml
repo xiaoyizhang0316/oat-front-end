@@ -4,7 +4,7 @@
 
 
 
-<image src="../../images/openImg.jpg" style="width:100%;height:100%;" />
+<image src="../../images/opening.png" style="width:100%;height:100%;" />
    
 <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
 <view class="modal-dialog" wx:if="{{showModal}}">
