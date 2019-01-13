@@ -11,16 +11,16 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#de3939",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "澳麦吧",
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "backgroundColor": "#eceff4",
     "enablePullDownRefresh": true
   },
   "tabBar": {
-    "color": "#858585",
-    "selectedColor": "#de3939",
-    "backgroundColor": "#ffffff",
+    "color": "#a8a8a8",
+    "selectedColor": "#e75063",
+    "backgroundColor": "#fdfdfd",
     "borderStyle": "black",
     "list": [
       {

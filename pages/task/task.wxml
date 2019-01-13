@@ -12,7 +12,7 @@
     {{item}}
   </view>
   <view class='endDate'>
-    活动截止日期：{{currentTask.finish_at}}
+    活动截止日期：<text style='font-weight:600'>{{currentTask.finish_at}}</text>
 
     <button class='publishTask' bindtap='showQRCode'> 我也要发布</button>
   </view>
@@ -31,28 +31,7 @@
       <image src='{{item}}' wx:for='{{currentTask.material.imgs}}' class='detailImg' bindtap='showImg' wx:key="{{index}}" data-id='{{index}}'></image>
     </view>
 
-    <view class='progress'>
-      <form bindsubmit="{{buttonMethod1}}" report-submit>
-        <button class="{{buttonClass1}}" form-type="submit" data-type="click" style='background-image:{{}}'>
-          <text class='buttonText'>{{buttonText1}}</text>
-        </button>
-      </form>
-      <image src='../../images/icons/right-arrow.svg' class='rightArrow'></image>
-      <form bindsubmit="{{buttonMethod2}}" report-submit>
-        <button class="{{buttonClass2}}" form-type="submit" data-type="click">
-          <text class='buttonText'>{{buttonText2}}</text>
-        </button>
-      </form>
-      <image src='../../images/icons/right-arrow.svg' class='rightArrow'></image>
-      <form bindsubmit="{{buttonMethod3}}" report-submit>
-        <button class="{{buttonClass3}}" form-type="submit" data-type="click">
-          <text class='buttonText'>{{buttonText3}}</text>
-        </button>
-      </form>
-    </view>
-    <view class='errorInfo'>
-      {{info}}
-    </view>
+    
     <view class='modalMask' bindtap='hideShareModal' catchtouchmove='preventTouchMove' wx:if='{{modalShow}}'>
     </view>
     <view class="modalDialog" wx:if="{{modalShow}}">
@@ -61,12 +40,6 @@
       </text>
       <image src='../../images/icons/add.png'></image>
       <button bindtap='hideShareModal'>确定</button>
-    </view>
-    <view class='joinedUser'>
-      共有{{currentTask.applied}}位用户正在做此任务
-      <view class='userImg'>
-        <image src='{{item}}' wx:for='{{avatars}}' ></image>
-      </view>
     </view>
     <view class='modalMask' bindtap='hideRedpackageModal' catchtouchmove='preventTouchMove' wx:if='{{redModalShow}}'>
     </view>
@@ -77,4 +50,35 @@
       <image src='../../images/icons/open.png' class='redPackageButton' animation="{{animationData}}" bindtap='getReward'></image>
     </view>
   </view>
+  <view class='progress'>
+      <form bindsubmit="{{buttonMethod1}}" report-submit>
+        <image src='{{status1}}' class='{{statusClass1}}'></image>
+        <button class="{{buttonClass1}}" form-type="submit" data-type="click">
+          <text class='buttonText'>{{buttonText1}}</text>
+        </button>
+      </form>
+      <image src='../../images/icons/line.svg' class='rightArrow'></image>
+      <form bindsubmit="{{buttonMethod2}}" report-submit>
+        <image src='{{status2}}' class='{{statusClass2}}'></image>
+        <button class="{{buttonClass2}}" form-type="submit" data-type="click">
+          <text class='buttonText'>{{buttonText2}}</text>
+        </button>
+      </form>
+      <image src='../../images/icons/line.svg' class='rightArrow'></image>
+      <form bindsubmit="{{buttonMethod3}}" report-submit>
+        <image src='{{status3}}' class='{{statusClass3}}'></image>
+        <button class="{{buttonClass3}}" form-type="submit" data-type="click">
+          <text class='buttonText'>{{buttonText3}}</text>
+        </button>
+      </form>
+    </view>
+    <view class='errorInfo'>
+      {{info}}
+    </view>
+    <view class='joinedUser'>
+      共有{{currentTask.applied}}位用户正在做此任务
+      <view class='userImg'>
+        <image src='{{item}}' wx:for='{{avatars}}' ></image>
+      </view>
+    </view>
 </view>

@@ -26,8 +26,8 @@
 .item-container {
   margin: 50rpx 30rpx;
   position: relative;
-  border: 1px solid #dae3f2;
-  background-color: #f7f8f9;
+  border: 1px solid #e0e0e0;
+  background-color: #fcfcfc;
   border-radius: 2%;
 }
 
@@ -38,35 +38,38 @@
 .taskDescription {
   padding:0rpx 5% 20rpx 5%;
   width:90%;
-  font-size: 28rpx;
+  font-size: 26rpx;
   line-height: 40rpx;
+  color: #545454;
 }
 
 .cover {
-  height: 300rpx;
+  height: 240rpx;
   width:90%;
   padding:20rpx 5%;
 }
 
 .topTitle {
-  font-size:32rpx;
-  border-bottom: 1px solid #dae3f2;
+  border-bottom: 1px solid #e0e0e0;
   margin:0;
   padding:20rpx 30rpx 20rpx 30rpx;
   display: flex;
-  flex-direction: column
 }
 
 .redPackage {
   height:38rpx;
   width:32rpx;
   margin:6rpx 5rpx 0 0rpx;
+  font-size: 22rpx;
+  color: #e75063
 }
 
 .logoImg {
   height:40rpx;
   width:40rpx;
   margin: 0 20rpx 0 0;
+  position:absolute;
+right:0;
 }
 
 .desc {
@@ -78,16 +81,17 @@
 }
 
 .left {
-  font-size:24rpx;
-  color:darkgray;
+  font-size:22rpx;
+  color:#8c8c8c;
   margin-left:5%;
 }
 
 .right {
-  font-size:24rpx;
+  font-size:22rpx;
   flex-direction: column;
   align-items: center;
   margin-right:5%;
+  color:#8c8c8c;
 }
 
 .right image{

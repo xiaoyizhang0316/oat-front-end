@@ -1,10 +1,18 @@
 /* pages/myTask/myTask.wxss */
+page{
+  background-color:#f7f7f7;
+}
 
 .item-container {
   display: flex;
-  border: 1px solid #dae3f2;
-  background-color: #fcfdff;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #ffffff;
   flex-direction: row;
+  height: 140rpx;
+}
+
+.item-container:nth-child(1) {
+  border-top: 1px solid #e0e0e0;
 }
 
 .item-container:active {
@@ -14,35 +22,38 @@
 .logoImg {
   height: 80rpx;
   width: 80rpx;
-  padding: 40rpx 20rpx;
+  padding: 30rpx 20rpx;
 }
 
 .taskInfo {
-  margin: 40rpx 0 0 20rpx;
   display: flex;
   flex-direction: column;
   width: 360rpx;
+  align-self:center;
+  margin-left:30rpx;
 }
 
 .description {
-  font-size: 32rpx;
+  font-size: 30rpx;
   font-weight: 500;
-  color: #353535;
+  color: #383838;
   line-height:1.8;
 }
 
 .time {
-  font-size: 26rpx;
+  font-size: 22rpx;
   font-weight: 500;
-  color: #888;
+  color: #8c8c8c;
 }
 
 .reward {
-  font-size: 30rpx;
-  font-weight: 500;
-  padding: 8rpx 0;
+  font-size: 26rpx;
+  /* font-weight: 500; 
+  padding: 8rpx 0; 
+  width: 140rpx; */
   position: absolute;
-  right: 15rpx;
-  width: 140rpx;
-  line-height: 1.35;
+  right: 45rpx;
+  line-height: 0.8;
+  color: #e75063;
+  align-self: center;
 }

@@ -5,6 +5,10 @@ var COM = require('../../utils/common.js')
 const urlList = [
   'http://seopic.699pic.com/photo/50035/0520.jpg_wh1200.jpg'
 ];
+const check = '../../images/icons/check.svg'
+const one = '../../images/icons/one.svg'
+const two = '../../images/icons/two.svg'
+const three = '../../images/icons/three.svg'
 const app = getApp();
 
 Page({
@@ -25,6 +29,9 @@ Page({
     buttonText3: '',
     buttonMethod3: '',
     buttonClass3: '',
+    status1:one,
+    status2:two,
+    status3:three,
     info: '',
     modalShow: false,
     animationData: {},
@@ -46,8 +53,13 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
-          info: '点击一键转发即可复制文字和图片'
-
+          info: '点击一键转发即可复制文字和图片',
+          status1: one,
+          status2: two,
+          status3: three,
+          statusClass1: 'statusImg',
+          statusClass2: 'statusImg',
+          statusClass3: 'statusImg'
         })
         break;
       case 1:
@@ -62,7 +74,13 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
-          info: '图片已复制到相册，文字已复制到剪切板，点击上传任务截图'
+          info: '图片已复制到相册，文字已复制到剪切板，点击上传任务截图',
+          status1:check,
+          status2:two,
+          status3:three,
+          statusClass1: 'checkImg',
+          statusClass2: 'statusImg',
+          statusClass3: 'statusImg'
         })
         break;
       case 3:
@@ -76,7 +94,13 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
-          info: '任务截图已上传，审核中'
+          info: '任务截图已上传，审核中',
+          status1:check,
+          status2:check,
+          status3:three,
+          statusClass1: 'checkImg',
+          statusClass2: 'checkImg',
+          statusClass3: 'statusImg'
         })
         break;
       case 4:
@@ -90,7 +114,13 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: 'showRedMenu',
           buttonClass3: 'shareButton',
-          info: '任务成功，点击即可领取奖励'
+          info: '任务成功，点击即可领取奖励',
+          status1:check,
+          status2:check,
+          status3:three,
+          statusClass1: 'checkImg',
+          statusClass2: 'checkImg',
+          statusClass3: 'statusImg'
         })
         break;
       case 5:
@@ -104,7 +134,13 @@ Page({
           buttonText3: '已领取',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
-          info: '任务奖励已领取'
+          info: '任务奖励已领取',
+          status1: check,
+          status2: check,
+          status3: check,
+          statusClass1:'checkImg',
+          statusClass2:'checkImg',
+          statusClass3:'checkImg'
         })
         break;
       case 6:
@@ -118,7 +154,13 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
-          info: '审核失败，点击再次上传任务截图'
+          info: '审核失败，点击再次上传任务截图',
+          status1: check,
+          status2: two,
+          status3: three,
+          statusClass1: 'checkImg',
+          statusClass2: 'statusImg',
+          statusClass3: 'statusImg'
         })
         break;
       default:
@@ -132,7 +174,13 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
-          info: '点击一键转发即可复制文字和图片'
+          info: '点击一键转发即可复制文字和图片',
+          status1: one,
+          status2: two,
+          status3: three,
+          statusClass1: 'statusImg',
+          statusClass2: 'statusImg',
+          statusClass3: 'statusImg'
         })
     }
   },

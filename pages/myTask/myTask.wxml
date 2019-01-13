@@ -4,13 +4,16 @@
     <image src='{{item.oat_task.brand}}' class='logoImg'></image>
     <view class='taskInfo'>
       <text class='description'>{{item.oat_task.title}}</text>
-      <text class='time'>截止日期：{{item.finish_at}}</text>
+      <text class='time'>截止日期：<text style='font-weight:600'>{{item.finish_at}}</text></text>
     </view>
     <view class='reward'>
       <text>
         {{item.status}}
       </text>
-      ￥{{item.amount}}
+      <text style='font-size:22rpx'>
+        金额：￥{{item.amount}}
+      </text>
+      
     </view>
   </view>
 </scroll-view>

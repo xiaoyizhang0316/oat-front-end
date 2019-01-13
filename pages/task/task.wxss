@@ -18,53 +18,60 @@ body, html {
   position: absolute;
   right: 30rpx;
   margin: 30rpx 0;
+  color: #545454;
+  font-size: 26rpx;
 }
 
 .title {
-  font-size: 36rpx;
+  font-size: 30rpx;
   font-weight: 600;
   margin: 20rpx 20rpx 20rpx 50rpx;
+  color: #383838;
 }
 
 .description {
   margin: 20rpx 20rpx 20rpx 50rpx;
   padding-right: 20rpx;
-  font-size: 22rpx;
+  font-size: 26rpx;
+  color: #545454;
 }
 
 .endDate {
-  font-size: 28rpx;
-  font-weight: 600;
+  font-size: 22rpx;
+  font-weight: 500;
   margin: 0 0 20rpx 50rpx;
   display: flex;
   align-items: center;
+  color: #545454;
 }
 
 .publishTask {
   width: 200rpx;
   font-size: 28rpx;
   position: relative;
-  right: 0;
+  right: -10%;
   background-color: #de3939;
   color: white;
 }
 
 .share-container {
-  background-color: #f7f8f9;
+  background-color: #fcfcfc;
   margin: 20rpx 20rpx 20rpx 20rpx;
   border-radius: 2.5%;
-  border: 1px solid #dae3f2;
+  border: 1px solid #e0e0e0;
 }
 
 .topTitle {
   border-bottom: 1px solid #dae3f2;
   display: flex;
-  height: 70rpx;
+  height: 80rpx;
+  font-size: 30rpx;
+  color: #e63c50;
 }
 
 .logoImg {
-  height: 50rpx;
-  width: 50rpx;
+  height: 40rpx;
+  width: 40rpx;
   position: absolute;
   right: 40rpx;
   margin-top: 15rpx;
@@ -72,7 +79,8 @@ body, html {
 
 .share-detail {
   margin: 30rpx 80rpx 30rpx 80rpx;
-  font-size: 24rpx;
+  font-size: 26rpx;
+  color: #545454;
 }
 
 .shareImg {
@@ -92,12 +100,12 @@ body, html {
   .shareButton {
     width: 120rpx;
     height: 120rpx;
-    border: 1px solid red;
+    border: 1px solid #e63c50;
     border-radius: 50%;
     font-size: 0.6rem;
     font-weight: 600;
     color: white;
-    background-color: red;
+    background-color: #e63c50;
     line-height: 38rpx;
   }
 
@@ -118,12 +126,12 @@ body, html {
   .shareButton {
     width: 120rpx;
     height: 120rpx;
-    border: 1px solid red;
+    border: 1px solid #e63c50;
     border-radius: 50%;
     font-size: 80%;
     font-weight: 600;
     color: white;
-    background-color: red;
+    background-color: #e63c50;
     line-height: 38rpx;
   }
 
@@ -144,12 +152,12 @@ body, html {
   .shareButton {
     width: 120rpx;
     height: 120rpx;
-    border: 1px solid red;
+    border: 1px solid #e63c50;
     border-radius: 50%;
     font-size: 100%;
     font-weight: 600;
     color: white;
-    background-color: red;
+    background-color: #e63c50;
     line-height: 38rpx;
   }
 
@@ -164,6 +172,27 @@ body, html {
     background-color: gray;
     line-height: 38rpx;
   }
+}
+
+.statusImg{
+  width: 40rpx;
+  height: 40rpx;
+  z-index: 1000;
+  position:relative;
+  top: 35rpx;
+  background-color: white;
+  border: 1rpx solid #e0e0e0;
+  border-radius:50%;
+}
+
+.checkImg{
+  width: 40rpx;
+  height: 40rpx;
+  z-index: 1000;
+  position:relative;
+  top: 35rpx;
+  border-radius:50%;
+  padding: 1rpx;
 }
 
 .buttonText {
@@ -203,9 +232,9 @@ body, html {
 }
 
 .rightArrow {
-  width: 40rpx;
-  height: 40rpx;
-  margin-top: 7%;
+  width:80rpx;
+  height:80rpx;
+  margin-top:12%;
 }
 
 .QRCode {
@@ -241,6 +270,8 @@ body, html {
 
 .joinedUser {
   text-align: center;
+  font-size: 26rpx;
+  color: #8c8c8c;
 }
 
 .userImg {
@@ -251,9 +282,9 @@ body, html {
 }
 
 .userImg image {
-  width: 50rpx;
-  height: 50rpx;
-  margin: 2% 0.2%;
+  width: 60rpx;
+  height: 60rpx;
+  margin: 10rpx;
 }
 
 .redModalDialog {
