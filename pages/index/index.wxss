@@ -56,6 +56,15 @@
   display: flex;
 }
 
+.titleText{
+  font-size:30rpx;
+  color:#383838;
+  width:80%;
+  text-overflow:ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 .redPackage {
   height:38rpx;
   width:32rpx;

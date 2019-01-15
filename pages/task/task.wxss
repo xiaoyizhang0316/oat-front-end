@@ -5,19 +5,19 @@ body, html {
 
 .topLogo {
   display: flex;
-  margin: 20rpx 20rpx 30rpx 10rpx;
+  margin: 20rpx 20rpx 0rpx 20rpx;
 }
 
 .topLogoImg {
-  margin: 10rpx 0 0 20rpx;
-  height: 70rpx;
-  width: 70rpx;
+  font-size: 26rpx;
+  color: #e75063;
+  margin: 10rpx 30rpx;
 }
 
 .Date {
   position: absolute;
   right: 30rpx;
-  margin: 30rpx 0;
+  margin: 10rpx 0;
   color: #545454;
   font-size: 26rpx;
 }
@@ -39,7 +39,7 @@ body, html {
 .endDate {
   font-size: 22rpx;
   font-weight: 500;
-  margin: 0 0 20rpx 50rpx;
+  margin: 30rpx 0 30rpx 50rpx;
   display: flex;
   align-items: center;
   color: #545454;
@@ -62,7 +62,7 @@ body, html {
 }
 
 .topTitle {
-  border-bottom: 1px solid #dae3f2;
+  border-bottom: 1px solid #e0e0e0;
   display: flex;
   height: 80rpx;
   font-size: 30rpx;
@@ -78,21 +78,21 @@ body, html {
 }
 
 .share-detail {
-  margin: 30rpx 80rpx 30rpx 80rpx;
+  margin: 40rpx 40rpx 40rpx 40rpx;
   font-size: 26rpx;
   color: #545454;
 }
 
 .shareImg {
-  margin: 40rpx 80rpx 40rpx 80rpx;
+  margin: 40rpx 30rpx 40rpx 30rpx;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
 .detailImg {
-  height: 160rpx;
-  width: 160rpx;
+  height: 170rpx;
+  width: 170rpx;
   margin: 10rpx 0;
 }
 
@@ -174,25 +174,26 @@ body, html {
   }
 }
 
-.statusImg{
+.statusImg {
   width: 40rpx;
   height: 40rpx;
   z-index: 1000;
-  position:relative;
+  position: relative;
   top: 35rpx;
   background-color: white;
   border: 1rpx solid #e0e0e0;
-  border-radius:50%;
+  border-radius: 50%;
+  box-sizing:border-box;
 }
 
-.checkImg{
+.checkImg {
   width: 40rpx;
   height: 40rpx;
   z-index: 1000;
-  position:relative;
+  position: relative;
   top: 35rpx;
-  border-radius:50%;
-  padding: 1rpx;
+  border-radius: 50%;
+  border:1rpx solid rgba(255,255,255,0);
 }
 
 .buttonText {
@@ -206,9 +207,15 @@ body, html {
 }
 
 .errorInfo {
-  margin: 5% 0 5% 0;
   text-align: center;
-  color: red;
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #e75063;
+  height: 68rpx;
+  line-height: 68rpx;
+  font-size: 26rpx;
 }
 
 .btn {
@@ -228,13 +235,15 @@ body, html {
 .progress {
   display: flex;
   justify-content: space-around;
-  margin: 0 80rpx;
+  margin: 40rpx 80rpx;
+  align-items: baseline;
 }
 
 .rightArrow {
-  width:80rpx;
-  height:80rpx;
-  margin-top:12%;
+  width: 80rpx;
+  height: 2rpx;
+  padding-top: 40rpx;
+  align-self:center;
 }
 
 .QRCode {
@@ -269,9 +278,21 @@ body, html {
 }
 
 .joinedUser {
-  text-align: center;
   font-size: 26rpx;
   color: #8c8c8c;
+  margin: 60rpx 0 100rpx 0;
+}
+
+.showAll {
+  font-size: 26rpx;
+  color: #e75063;
+  font-weight: 600;
+  margin-left: 20rpx;
+}
+
+.showAll:active {
+  background-color: #8c8c8c;
+  opacity: 0.5;
 }
 
 .userImg {

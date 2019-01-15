@@ -9,12 +9,15 @@ const check = '../../images/icons/check.svg'
 const one = '../../images/icons/one.svg'
 const two = '../../images/icons/two.svg'
 const three = '../../images/icons/three.svg'
+const defaultShow = '查看全部 >'
+const backToDefaultShow = '收起 >'
 const app = getApp();
 
 Page({
   data: {
     url: '',
     avatars: '',
+    allAvatars:'',
     description: null,
     materialDescription: null,
     currentTask: '',
@@ -35,7 +38,8 @@ Page({
     info: '',
     modalShow: false,
     animationData: {},
-    redModalShow: false
+    redModalShow: false,
+    showAllText: defaultShow
   },
 
   setButton: function(status) {
@@ -288,7 +292,7 @@ Page({
   uploadScreenshot: function(e) {
     var self = this;
     let formID = e.detail.formId
-    if (1) {
+    if (!app.globalData.clickFlag) {
       app.globalData.clickFlag = true
       wx.chooseImage({
         count: 1,
@@ -445,7 +449,8 @@ Page({
           console.log(data)
           self.setButton(0)
           self.setData({
-            avatars: data.avatars.slice(0, 20)
+            allAvatars: data.avatars,
+            avatars: data.avatars.slice(0, 8)
           })
           if (data.reward) {
             self.setButton(data.reward.status)
@@ -457,6 +462,30 @@ Page({
         })
       }
     }
+  },
+
+  showAll:function(e) {
+    let self = this;
+    let all = self.data.allAvatars
+    if(!app.globalData.clickFlag){
+      app.globalData.clickFlag = true;
+      if (self.data.showAllText == defaultShow) {
+        self.setData({
+          avatars: all,
+          showAllText: backToDefaultShow
+        })
+        app.globalData.clickFlag = false;
+      }
+      else {
+        let temp = self.data.allAvatars.slice(0, 8)
+        self.setData({
+          avatars: temp,
+          showAllText: defaultShow
+        })
+        app.globalData.clickFlag = false;
+      }
+    }
+
   },
 
   onLoad: function(e) {
@@ -493,7 +522,8 @@ Page({
       console.log(data)
       self.setButton(0)
       self.setData({
-        avatars: data.avatars.slice(0, 20)
+        showAllText: defaultShow,
+        avatars: data.avatars.slice(0, 8)
       })
       if (data.reward) {
         self.setButton(data.reward.status)

@@ -38,7 +38,7 @@ Page({
 		let tasks = wx.getStorageSync('tasks');
     dateParser.parseArrayDate(tasks);
     console.log(tasks[1].title.length)
-    tasks = self.parseTitle(tasks)
+    //tasks = self.parseTitle(tasks)
 		this.setData({
 			tasks : tasks
 		})
@@ -63,7 +63,7 @@ Page({
     let tasks = wx.getStorageSync('tasks');
     dateParser.parseArrayDate(tasks);
     console.log(tasks[1].title.length)
-    tasks = self.parseTitle(tasks)
+    //tasks = self.parseTitle(tasks)
     this.setData({
       tasks: tasks
     })

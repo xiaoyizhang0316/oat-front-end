@@ -5,13 +5,13 @@
   <view wx:for="{{tasks}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{item.id}}">
     <view class='topTitle'>
 
-      <text style='font-size:30rpx;color:#383838'>{{item.title}}</text>
+      <text class='titleText'>{{item.title}}</text>
       <image src="{{item.material.brand.logo}}" class='logoImg' mode="aspectFit"></image>
     </view>
-    <view style='display:flex'>
-      <view style='display:flex;margin:20rpx;'>
-        <text style='font-size:22rpx;line-height:0.2;color:#e75063'>
-          参与活动人数:{{item.completed}}/{{item.total}}
+    <view style='display:flex; margin:10rpx 0;'>
+      <view style='display:flex;margin:20rpx 30rpx;'>
+        <text style='font-size:24rpx;line-height:0.2;color:#e75063'>
+          参与活动人数: {{item.completed}}/{{item.total}}
         </text>
       </view>
       <view style='display:flex;position:absolute;right:20rpx;margin:20rpx 10rpx;'>
@@ -32,4 +32,5 @@
       </view>
     </view>
   </view>
+  <custom-tab-bar></custom-tab-bar>
 </scroll-view>

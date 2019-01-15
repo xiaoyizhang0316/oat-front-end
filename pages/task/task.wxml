@@ -1,8 +1,8 @@
 <view class='body'>
 
   <view class='topLogo'>
-    <image src="{{currentTask.material.brand.logo}}" class='topLogoImg'></image>
-    <text class='Date'>活动开始日期：{{currentTask.start_at}}</text>
+    <text class='topLogoImg'>{{currentTask.material.brand.title}}</text>
+    <text class='Date'>{{currentTask.start_at}}</text>
   </view>
 
   <view class='title'>
@@ -14,13 +14,13 @@
   <view class='endDate'>
     活动截止日期：<text style='font-weight:600'>{{currentTask.finish_at}}</text>
 
-    <button class='publishTask' bindtap='showQRCode'> 我也要发布</button>
+    <!-- <button class='publishTask' bindtap='showQRCode'> 我也要发布</button> -->
   </view>
 
 
   <view class='share-container'>
     <view class='topTitle'>
-      <text style='margin:20rpx 20rpx 20rpx 20rpx'>{{currentTask.material.title}}</text>
+      <text style='margin:20rpx 40rpx 20rpx 40rpx'>{{currentTask.material.title}}</text>
       <image src="{{currentTask.material.brand.logo}}" class='logoImg'></image>
     </view>
 
@@ -57,14 +57,14 @@
           <text class='buttonText'>{{buttonText1}}</text>
         </button>
       </form>
-      <image src='../../images/icons/line.svg' class='rightArrow'></image>
+      <image src='../../images/icons/line.svg' class='rightArrow' mode='aspectFill'></image>
       <form bindsubmit="{{buttonMethod2}}" report-submit>
         <image src='{{status2}}' class='{{statusClass2}}'></image>
         <button class="{{buttonClass2}}" form-type="submit" data-type="click">
           <text class='buttonText'>{{buttonText2}}</text>
         </button>
       </form>
-      <image src='../../images/icons/line.svg' class='rightArrow'></image>
+      <image src='../../images/icons/line.svg' class='rightArrow' mode='aspectFill'></image>
       <form bindsubmit="{{buttonMethod3}}" report-submit>
         <image src='{{status3}}' class='{{statusClass3}}'></image>
         <button class="{{buttonClass3}}" form-type="submit" data-type="click">
@@ -75,8 +75,13 @@
     <view class='errorInfo'>
       {{info}}
     </view>
+
     <view class='joinedUser'>
-      共有{{currentTask.applied}}位用户正在做此任务
+      <view style='display:flex;justify-content:center;margin-bottom:20rpx'>
+        <text>已有{{currentTask.applied}}人参与此任务</text>
+        <view bindtap='showAll' class='showAll'>{{showAllText}}</view>
+      </view>
+      
       <view class='userImg'>
         <image src='{{item}}' wx:for='{{avatars}}' ></image>
       </view>
