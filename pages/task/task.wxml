@@ -81,7 +81,6 @@
         <text>已有{{currentTask.applied}}人参与此任务</text>
         <view bindtap='showAll' class='showAll'>{{showAllText}}</view>
       </view>
-      
       <view class='userImg'>
         <image src='{{item}}' wx:for='{{avatars}}' ></image>
       </view>
