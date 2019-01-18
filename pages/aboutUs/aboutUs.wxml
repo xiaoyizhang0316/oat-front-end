@@ -1,5 +1,5 @@
 <!--pages/aboutUs/aboutUs.wxml-->
-<view style='margin:60rpx;'>
+<view style='margin:60rpx 50rpx;'>
   <text>
     澳麦吧，是一个可以帮助您赚钱的小程序。通过澳麦吧您可以参与红包任务、活动，只需简单几步就可以领取红包。
   </text>

@@ -8,13 +8,13 @@
       <text class='titleText'>{{item.title}}</text>
       <image src="{{item.material.brand.logo}}" class='logoImg' mode="aspectFit"></image>
     </view>
-    <view style='display:flex; margin:10rpx 0;'>
-      <view style='display:flex;margin:20rpx 30rpx;'>
+    <view style='display:flex; margin:30rpx;'>
+      <view style='display:flex;'>
         <text style='font-size:24rpx;line-height:0.2;color:#e75063'>
           参与活动人数: {{item.completed}}/{{item.total}}
         </text>
       </view>
-      <view style='display:flex;position:absolute;right:20rpx;margin:20rpx 10rpx;'>
+      <view style='display:flex;position:absolute;right:20rpx;'>
         <!-- <image src='../../images/icons/redPackage.png' class='redPackage'></image> -->
         <text style='font-size:22rpx;line-height:0.2;color: #e75063'>
           红包金额： ￥{{item.single_reward}}
@@ -28,7 +28,7 @@
         <text>开始时间：<text style='font-weight:600'>{{item.start_at}}</text></text>
       </view>
       <view class="right">
-        <text style="margin-top:10rpx">截止日期：<text style='font-weight:600'>{{item.finish_at}}</text></text>
+        <text style="margin-top:10rpx">结束时间：<text style='font-weight:600'>{{item.finish_at}}</text></text>
       </view>
     </view>
   </view>

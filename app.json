@@ -25,14 +25,14 @@
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "images/icons/mark1.png",
-        "selectedIconPath": "images/icons/markHL1.png",
+        "iconPath": "images/icons/mark.png",
+        "selectedIconPath": "images/icons/markHL.png",
         "text": "任务列表"
       },
       {
         "pagePath": "pages/mine/mine",
-        "iconPath": "images/icons/mine1.png",
-        "selectedIconPath": "images/icons/mineHL1.png",
+        "iconPath": "images/icons/mine.png",
+        "selectedIconPath": "images/icons/mineHL.png",
         "text": "个人中心"
       }
     ]

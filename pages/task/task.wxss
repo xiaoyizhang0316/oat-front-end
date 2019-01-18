@@ -5,19 +5,17 @@ body, html {
 
 .topLogo {
   display: flex;
-  margin: 20rpx 20rpx 0rpx 20rpx;
+  margin: 40rpx 50rpx 50rpx 50rpx;
 }
 
 .topLogoImg {
   font-size: 26rpx;
   color: #e75063;
-  margin: 10rpx 30rpx;
 }
 
 .Date {
   position: absolute;
-  right: 30rpx;
-  margin: 10rpx 0;
+  right: 50rpx;
   color: #545454;
   font-size: 26rpx;
 }
@@ -25,13 +23,12 @@ body, html {
 .title {
   font-size: 30rpx;
   font-weight: 600;
-  margin: 20rpx 20rpx 20rpx 50rpx;
+  margin: 0rpx 50rpx 40rpx 50rpx;
   color: #383838;
 }
 
 .description {
-  margin: 20rpx 20rpx 20rpx 50rpx;
-  padding-right: 20rpx;
+  margin: 0rpx 50rpx 30rpx 50rpx;
   font-size: 26rpx;
   color: #545454;
 }
@@ -39,7 +36,7 @@ body, html {
 .endDate {
   font-size: 22rpx;
   font-weight: 500;
-  margin: 30rpx 0 30rpx 50rpx;
+  margin: 30rpx 0 50rpx 50rpx;
   display: flex;
   align-items: center;
   color: #545454;
@@ -64,27 +61,27 @@ body, html {
 .topTitle {
   border-bottom: 1px solid #e0e0e0;
   display: flex;
-  height: 80rpx;
   font-size: 30rpx;
   color: #e63c50;
+  padding: 30rpx;
+  align-items:center;
 }
 
 .logoImg {
-  height: 40rpx;
-  width: 40rpx;
+  height: 50rpx;
+  width: 150rpx;
   position: absolute;
-  right: 40rpx;
-  margin-top: 15rpx;
+  right: 50rpx;
 }
 
 .share-detail {
-  margin: 40rpx 40rpx 40rpx 40rpx;
+  margin: 30rpx;
   font-size: 26rpx;
   color: #545454;
 }
 
 .shareImg {
-  margin: 40rpx 30rpx 40rpx 30rpx;
+  margin: 30rpx;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
@@ -180,10 +177,7 @@ body, html {
   z-index: 1000;
   position: relative;
   top: 35rpx;
-  background-color: white;
-  border: 1rpx solid #e0e0e0;
   border-radius: 50%;
-  box-sizing:border-box;
 }
 
 .checkImg {
@@ -193,7 +187,6 @@ body, html {
   position: relative;
   top: 35rpx;
   border-radius: 50%;
-  border:1rpx solid rgba(255,255,255,0);
 }
 
 .buttonText {
@@ -206,17 +199,7 @@ body, html {
   filter: opacity(0.4);
 }
 
-.errorInfo {
-  text-align: center;
-  color: #fff;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #e75063;
-  height: 68rpx;
-  line-height: 68rpx;
-  font-size: 26rpx;
-}
+
 
 .btn {
   border: 0px solid #f7f8f9;
@@ -332,4 +315,44 @@ body, html {
   width: 250rpx;
   height: 250rpx;
   border-radius: 50%;
+}
+
+.errorInfo {
+  color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #e75063;
+  height: 68rpx;
+  line-height: 68rpx;
+  font-size: 22rpx;
+  display: flex;
+  align-items: center;
+}
+
+.statusInfo {
+  margin-left:30rpx;
+  width: 80%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+.shareIconArea{
+  width:100rpx;
+  height:50rpx;
+  background-color:white;
+  border-radius:100rpx;
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  position:absolute;
+  right:30rpx;
+  font-size:22rpx;
+  color:#e75063;
+  padding:5rpx 10rpx 5rpx 5rpx;
+}
+.shareIcon{
+  width:30rpx;
+  height:30rpx;
 }

@@ -2,7 +2,9 @@
 <view>
   <view class='menu'>
      <wux-accordion-group title="常见问题" default-current="{{ [] }}">
+
             <wux-accordion title="我怎么样才能领取红包？" content="当您完成红包任务后，上传朋友圈截图到相关任务活动，管理员审核截图后24小时之内，您就可以领取属于您的红包了"></wux-accordion>
+
             <wux-accordion title="转发朋友圈任务的步骤是怎么样的？" content="转发朋友圈需要您点击任务页面下的一键转发，小程序会自动复制好需要您转发的内容，您只需要前往您的朋友圈赞帖所复制的转发内容并截图就行啦。"></wux-accordion>
         </wux-accordion-group>
   </view>

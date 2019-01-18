@@ -5,10 +5,10 @@ var COM = require('../../utils/common.js')
 const urlList = [
   'http://seopic.699pic.com/photo/50035/0520.jpg_wh1200.jpg'
 ];
-const check = '../../images/icons/check.svg'
-const one = '../../images/icons/one.svg'
-const two = '../../images/icons/two.svg'
-const three = '../../images/icons/three.svg'
+const check = '../../images/icons/check.png'
+const one = '../../images/icons/one.png'
+const two = '../../images/icons/two.png'
+const three = '../../images/icons/three.png'
 const defaultShow = '查看全部 >'
 const backToDefaultShow = '收起 >'
 const app = getApp();
@@ -78,7 +78,7 @@ Page({
           buttonText3: '领取奖励',
           buttonMethod3: '',
           buttonClass3: 'grayButton',
-          info: '图片已复制到相册，文字已复制到剪切板，点击上传任务截图',
+          info: '图片已复制到相册，文字已复制到剪切板',
           status1:check,
           status2:two,
           status3:three,
@@ -92,7 +92,7 @@ Page({
           buttonText1: '一键转发',
           buttonMethod1: '',
           buttonClass1: 'grayButton',
-          buttonText2: '审核中...',
+          buttonText2: '正在审核',
           buttonMethod2: '',
           buttonClass2: 'grayButton',
           buttonText3: '领取奖励',
