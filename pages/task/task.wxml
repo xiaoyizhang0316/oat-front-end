@@ -20,8 +20,8 @@
 
   <view class='share-container'>
     <view class='topTitle'>
-      <text style='margin:20rpx 40rpx 20rpx 40rpx'>{{currentTask.material.title}}</text>
-      <image src="{{currentTask.material.brand.logo}}" class='logoImg'></image>
+      <text>任务素材</text>
+      <image src="{{currentTask.material.brand.logo}}" class='logoImg' mode="aspectFit"></image>
     </view>
 
     <view class='share-detail' wx:for='{{materialDescription}}'>
@@ -73,12 +73,19 @@
       </form>
     </view>
     <view class='errorInfo'>
-      {{info}}
+      <view class='statusInfo'>{{info}}</view>
+      <!-- <view class='shareIconArea'>
+        
+        <text style='font-size:26rpx;color:#e75063;margin-right:10rpx;line-height:50rpx;'>分享           </text>
+      </view> -->
+      <button open-type="share" class='shareIconArea'>
+      <image src='../../images/icons/share.svg' class='shareIcon'></image>
+      分享</button>
     </view>
 
     <view class='joinedUser'>
       <view style='display:flex;justify-content:center;margin-bottom:20rpx'>
-        <text>已有{{currentTask.applied}}人参与此任务</text>
+        <text>已有{{currentTask.applied}}人参与</text>
         <view bindtap='showAll' class='showAll'>{{showAllText}}</view>
       </view>
       <view class='userImg'>

@@ -231,3 +231,17 @@ button::after {
   border-radius: 5%;
   text-align: center;
 }
+
+
+.customerButton{
+  display: flex;
+  align-items:center;
+  margin:30rpx;
+}
+
+.customerBtn{
+  background-color: #e75063;
+  color: white;
+  height:60rpx;
+  font-size:26rpx;
+}

@@ -77,10 +77,37 @@ Page({
       this.setData({
         modalShow:true
       })
-    }
+    },
 
+    showQRCode: function () {
+    this.setData({
+      modalShow: true
+    })
+  },
 
+  showImg: function (e) {
+    let self = this
+    wx.previewImage({
+      urls:['../../images/icons/customer.jpg']
+    })
+  },
 
+  copyId: function(e) {
+    let self = this;
+    wx.setClipboardData({
+      data: 'aomai8',
+      success() {
+        wx.showToast({
+          title: '复制成功',
+        })
+      },
+      fail(){
+        wx.showToast({
+          title: '复制失败',
+        })
+      }
+    })
+  },
 
 
 })
