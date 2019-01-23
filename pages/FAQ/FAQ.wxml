@@ -6,6 +6,7 @@
             <wux-accordion title="2. 我怎样才能领取红包？" content="当您完成红包任务后，上传朋友圈截图到相关任务活动。等待后台人工审核，审核通过后红包会自动发到您的微信钱包中。"></wux-accordion>
             <wux-accordion title="3. 转发朋友圈任务的步骤是怎样的？" content="点击任务中的一键转发，小程序自动为您保存图片及文字。您只需在朋友圈中复制粘贴所复制的内容即可。然后上传朋友圈截图到小程序的任务中来兑换红包。带后台人工审核通过后，您的红包会自动存入您的钱包中。"></wux-accordion>
             <wux-accordion title="4. 在澳麦吧小程序上我能做些什么事呢?" content="参加活动，完成任务，领取红包，领取代金券以及各项福利信息的及时获知。"></wux-accordion>
+
         </wux-accordion-group>
   </view>
   
