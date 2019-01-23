@@ -7,7 +7,8 @@
     "pages/myTask/myTask",
     "pages/aboutUs/aboutUs",
     "pages/FAQ/FAQ",
-    "pages/report/report"
+    "pages/report/report",
+    "pages/publish/publish"
   ],
   "window": {
     "backgroundTextStyle": "light",

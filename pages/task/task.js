@@ -48,7 +48,7 @@ Page({
     switch (status) {
       case 0:
         self.setData({
-          buttonText1: '一键转发',
+          buttonText1: '下载素材',
           buttonMethod1: 'shareImg',
           buttonClass1: 'shareButton',
           buttonText2: '上传截图',
@@ -69,7 +69,7 @@ Page({
       case 1:
       case 2:
         self.setData({
-          buttonText1: '一键转发',
+          buttonText1: '下载素材',
           buttonMethod1: '',
           buttonClass1: 'grayButton',
           buttonText2: '上传截图',
@@ -89,7 +89,7 @@ Page({
         break;
       case 3:
         self.setData({
-          buttonText1: '一键转发',
+          buttonText1: '下载素材',
           buttonMethod1: '',
           buttonClass1: 'grayButton',
           buttonText2: '正在审核',
@@ -109,7 +109,7 @@ Page({
         break;
       case 4:
         self.setData({
-          buttonText1: '一键转发',
+          buttonText1: '下载素材',
           buttonMethod1: '',
           buttonClass1: 'grayButton',
           buttonText2: '上传截图',
@@ -129,7 +129,7 @@ Page({
         break;
       case 5:
         self.setData({
-          buttonText1: '一键转发',
+          buttonText1: '下载素材',
           buttonMethod1: '',
           buttonClass1: 'grayButton',
           buttonText2: '上传截图',
@@ -149,7 +149,7 @@ Page({
         break;
       case 6:
         self.setData({
-          buttonText1: '一键转发',
+          buttonText1: '下载素材',
           buttonMethod1: '',
           buttonClass1: 'grayButton',
           buttonText2: '再次上传',
@@ -169,7 +169,7 @@ Page({
         break;
       default:
         self.setData({
-          buttonText1: '一键转发',
+          buttonText1: '下载素材',
           buttonMethod1: 'shareImg',
           buttonClass1: 'shareButton',
           buttonText2: '上传截图',
@@ -354,10 +354,15 @@ Page({
                 mask: true,
                 duration: 1500
               })
+            },
+            complete(res) {
+              wx.hideLoading();
+              app.globalData.clickFlag = false
             }
           })
         }
       })
+      app.globalData.clickFlag = false
     }
   },
 
