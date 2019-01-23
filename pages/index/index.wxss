@@ -75,7 +75,7 @@
 
 .logoImg {
   height:50rpx;
-  width:150rpx;
+  width:50rpx;
   margin: 0 30rpx 0 0;
   position:absolute;
   right:0;
