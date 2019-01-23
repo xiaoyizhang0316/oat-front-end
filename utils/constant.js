@@ -33,6 +33,7 @@ const TEST = BASE_URL + "/client/1"
 
 
 module.exports = {
+
       BASE_URL,
       IMG_BASE,
       IMG_BANNER,
@@ -47,3 +48,4 @@ module.exports = {
       CLAIM_REWARD,
       GET_REWARDS
 }
+
