@@ -38,6 +38,9 @@ page{
   font-weight: 500;
   color: #383838;
   line-height:1.8;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .time {

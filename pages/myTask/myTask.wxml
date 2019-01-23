@@ -1,7 +1,7 @@
 <!--pages/myTask/myTask.wxml-->
 <scroll-view scroll-y="true"> 
   <view wx:for="{{tasks}}" wx:for-index="idx" class="item-container" bindtap="showDetail" id="{{item.oat_task_id}}">
-    <image src='{{item.oat_task.brand}}' class='logoImg'></image>
+    <image src='{{item.oat_task.brand}}' class='logoImg' mode='aspectFit'></image>
     <view class='taskInfo'>
       <text class='description'>{{item.oat_task.title}}</text>
       <text class='time'>截止日期：<text style='font-weight:600'>{{item.finish_at}}</text></text>

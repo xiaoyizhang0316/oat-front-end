@@ -47,7 +47,7 @@
     </view>
   </view>
 
-  <view class="explain-line" style="background-color:'#e9e9e9';margin-top:20rpx" bindtap="showQRCode">
+  <view class="explain-line" style="background-color:'#e9e9e9';margin-top:20rpx" bindtap="goToPublish">
     <view class="explain-block">
       <image style="height:36rpx;width:36rpx;" src="../../images/icons/create.svg"></image>
     </view>
